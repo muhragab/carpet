@@ -1,0 +1,9 @@
+@font-face{
+    font-family: 'DroidKufiRegular';
+    font-style: normal;
+    src: url('./fonts/DroidKufiRegular.ttf');
+}
+
+*{
+    font-family: "DroidKufiRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
