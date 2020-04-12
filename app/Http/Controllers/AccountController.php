@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Account;
+use App\Models\AccountCategory;
+use App\Models\SubAccountCategory;
 use Illuminate\Http\Request;
 
 class AccountController extends Controller
@@ -50,7 +52,8 @@ class AccountController extends Controller
     public function show(Account $account)
     {
         return view('mudir.accounts.show')
-            ->withAccount($account);
+            ->withAccount($account)
+            ->with('subCategory' , SubAccountCategory::get());
     }
 
     /**
@@ -61,6 +64,7 @@ class AccountController extends Controller
      */
     public function edit(Account $account)
     {
+
         return view('mudir.accounts.edit')
             ->withAccount($account);
     }

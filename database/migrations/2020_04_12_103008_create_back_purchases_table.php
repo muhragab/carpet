@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-class CreatePurchasesTable extends Migration
+class CreateBackPurchasesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class CreatePurchasesTable extends Migration
      */
     public function up()
     {
-        Schema::create('purchases', function (Blueprint $table) {
+        Schema::create('back_purchases', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('supplier_id')->index()->nullable();
             $table->unsignedBigInteger('inventorie_id')->index()->nullable();
             $table->integer('permission_number')->nullable();
+            $table->integer('discount')->nullable();
             $table->decimal('price', 8, 2)->nullable();
+            $table->decimal('priceFinal', 8, 2)->nullable();
+            $table->decimal('finalPrice', 8, 2)->nullable();
             $table->integer('taxes')->nullable();
             $table->timestamps();
 
@@ -26,11 +29,11 @@ class CreatePurchasesTable extends Migration
                 ->references('id')
                 ->on('suppliers')
                 ->onDelete('cascade');
-/*
+
             $table->foreign('inventorie_id')
                 ->references('id')
                 ->on('stores')
-                ->onDelete('cascade');*/
+                ->onDelete('cascade');
         });
     }
 
@@ -41,6 +44,6 @@ class CreatePurchasesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('purchases');
+        Schema::dropIfExists('back_purchases');
     }
 }

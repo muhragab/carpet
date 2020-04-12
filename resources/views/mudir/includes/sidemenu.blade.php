@@ -19,7 +19,15 @@
     </li>
 
     <li>
-        <a class="" href="{{ route('accounts.index') }}"><i class="fa fa-dashboard fa-fw"></i> الخزن</a>
+        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> ملف الخزينه<span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+            <li>
+                <a class="" href="{{ route('accountCategories.index') }}"><i class="fa fa-dashboard fa-fw"></i> تصنيف رئيسي</a>
+                <a class="" href="{{ route('subAccountCategories.index') }}"><i class="fa fa-dashboard fa-fw"></i> تصنيف فرعي</a>
+                <a class="" href="{{ route('accounts.index') }}"><i class="fa fa-dashboard fa-fw"></i> الخزن</a>
+            </li>
+        </ul>
+        <!-- /.nav-second-level -->
     </li>
 
     <li>
@@ -44,6 +52,9 @@
             </li>
             <li>
                 <a href="{{ route('purchase.index') }}">المشتريات</a>
+            </li>
+            <li>
+                <a href="{{ route('back.index') }}">المرتجعات</a>
             </li>
         </ul>
         <!-- /.nav-second-level -->

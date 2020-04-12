@@ -17,10 +17,11 @@ class CreateAccountStatementsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('account_id')->index()->nullable();
             $table->string('statement');
+            $table->string('category');
+            $table->date('date');
             $table->enum('statement_type', ['creditor', 'debtor']);
             $table->decimal('amount', 8, 2)->nullable();
             $table->timestamps();
-
             $table->foreign('account_id')
                 ->references('id')
                 ->on('accounts')

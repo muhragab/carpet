@@ -18,6 +18,7 @@ let Vue = require('vue').default;
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('purchase-component', require('./components/PurchaseComponent.vue').default);
+Vue.component('back-purchase-component', require('./components/BackPurchaseComponent.vue').default);
 Vue.component('sales-component', require('./components/SalesComponent.vue').default);
 
 const app = new Vue({

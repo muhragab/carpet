@@ -15,6 +15,7 @@ Route::resource('products', 'ProductController');
 
 Route::resource('purchases/supplier', 'SupplierController');
 Route::resource('purchases/purchase', 'PurchaseController');
+Route::resource('purchases/back', 'PurchaseBackController');
 
 Route::resource('sales/sales', 'SalesController');
 
@@ -34,3 +35,5 @@ Route::resource('accounts', 'AccountController');
 Route::resource('accounts_statement', 'AccountStatementController');
 
 Route::resource('activitys', 'ActivityController');
+Route::resource('accountCategories', 'AccountCategoryController');
+Route::resource('subAccountCategories', 'SubAccountCategoryController');

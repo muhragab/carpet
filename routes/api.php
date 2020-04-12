@@ -23,6 +23,9 @@ Route::get('/get/product/one', 'Api\ProductController@getOne');
 Route::get('/supplier/all', 'Api\SupplierController@getAll');
 Route::get('/get-all-stores', 'Api\PurchaseController@stores');
 Route::get('/permission/number', 'Api\PurchaseController@permission_number');
-
 Route::post('/purchase/save', 'Api\PurchaseController@save');
+
+Route::get('back/permission/number', 'Api\PurchaseBackController@permission_number');
+Route::post('back/purchase/save', 'Api\PurchaseBackController@save');
+
 Route::post('/sale/save', 'Api\SaleController@save');

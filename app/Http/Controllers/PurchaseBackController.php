@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Account;
-use App\AccountStatement;
+use App\Models\Purchases\BackPurchase;
 use Illuminate\Http\Request;
 
-class AccountStatementController extends Controller
+use App\Models\Purchases\Purchase;
+use App\Models\Products\Product;
+
+class PurchaseBackController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +17,9 @@ class AccountStatementController extends Controller
      */
     public function index()
     {
-        //
+        $purchases = BackPurchase::get();
+        return view('mudir.purchases.back_purchase.index')
+            ->withPurchases($purchases);
     }
 
     /**
@@ -25,7 +29,9 @@ class AccountStatementController extends Controller
      */
     public function create()
     {
-        //
+        $products = Product::get();
+        return view('mudir.purchases.back_purchase.create')
+            ->withProducts($products);
     }
 
     /**
@@ -36,34 +42,30 @@ class AccountStatementController extends Controller
      */
     public function store(Request $request)
     {
-
-        $data = $request->all();
-
-        AccountStatement::create($data);
-        return back()->with('success', 'تم اضافة البيان');
+        return $request->all();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\AccountStatement $accountStatement
+     * @param  \App\Purchases\Purchase $purchase
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show($id)
     {
-        $account = Account::where('id', $request->account)->first();
-        return view('mudir.accounts.show_debtor')
-            ->withAccount($account)
-            ->with('type',$request->type);
+        $purchase = BackPurchase::where('id', $id)->first();
+        //dd($purchase);
+        return view('mudir.purchases.back_purchase.show')
+            ->withPurchase($purchase);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\AccountStatement $accountStatement
+     * @param  \App\Purchases\Purchase $purchase
      * @return \Illuminate\Http\Response
      */
-    public function edit(AccountStatement $accountStatement)
+    public function edit(BackPurchase $purchase)
     {
         //
     }
@@ -72,10 +74,10 @@ class AccountStatementController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  \App\AccountStatement $accountStatement
+     * @param  \App\Purchases\Purchase $purchase
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, AccountStatement $accountStatement)
+    public function update(Request $request, BackPurchase $purchase)
     {
         //
     }
@@ -83,10 +85,10 @@ class AccountStatementController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\AccountStatement $accountStatement
+     * @param  \App\Purchases\Purchase $purchase
      * @return \Illuminate\Http\Response
      */
-    public function destroy(AccountStatement $accountStatement)
+    public function destroy(BackPurchase $purchase)
     {
         //
     }
