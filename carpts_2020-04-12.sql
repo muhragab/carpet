@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.5-10.1.37-MariaDB)
 # Database: carpts
-# Generation Time: 2020-04-12 14:59:53 +0000
+# Generation Time: 2020-04-12 18:37:33 +0000
 # ************************************************************
 
 
@@ -113,6 +113,72 @@ VALUES
 	(5,'خزنه عامة','safe','2019-12-19 18:49:49','2019-12-19 18:49:49');
 
 /*!40000 ALTER TABLE `accounts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table back_purchase_items
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `back_purchase_items`;
+
+CREATE TABLE `back_purchase_items` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `purchase_id` bigint(20) unsigned DEFAULT NULL,
+  `product_id` bigint(20) unsigned DEFAULT NULL,
+  `number` int(11) NOT NULL,
+  `price` decimal(8,2) DEFAULT NULL,
+  `total_price` decimal(8,2) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `back_purchase_items_purchase_id_index` (`purchase_id`),
+  KEY `back_purchase_items_product_id_index` (`product_id`),
+  CONSTRAINT `back_purchase_items_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+LOCK TABLES `back_purchase_items` WRITE;
+/*!40000 ALTER TABLE `back_purchase_items` DISABLE KEYS */;
+
+INSERT INTO `back_purchase_items` (`id`, `purchase_id`, `product_id`, `number`, `price`, `total_price`, `created_at`, `updated_at`)
+VALUES
+	(1,1,1,10,100.00,1000.00,'2020-04-12 14:32:17','2020-04-12 14:32:17');
+
+/*!40000 ALTER TABLE `back_purchase_items` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table back_purchases
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `back_purchases`;
+
+CREATE TABLE `back_purchases` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `supplier_id` bigint(20) unsigned DEFAULT NULL,
+  `inventorie_id` bigint(20) unsigned DEFAULT NULL,
+  `permission_number` int(11) DEFAULT NULL,
+  `discount` int(11) DEFAULT NULL,
+  `price` decimal(8,2) DEFAULT NULL,
+  `priceFinal` decimal(8,2) DEFAULT NULL,
+  `finalPrice` decimal(8,2) DEFAULT NULL,
+  `taxes` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `back_purchases_supplier_id_index` (`supplier_id`),
+  KEY `back_purchases_inventorie_id_index` (`inventorie_id`),
+  CONSTRAINT `back_purchases_inventorie_id_foreign` FOREIGN KEY (`inventorie_id`) REFERENCES `stores` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `back_purchases_supplier_id_foreign` FOREIGN KEY (`supplier_id`) REFERENCES `suppliers` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+LOCK TABLES `back_purchases` WRITE;
+/*!40000 ALTER TABLE `back_purchases` DISABLE KEYS */;
+
+INSERT INTO `back_purchases` (`id`, `supplier_id`, `inventorie_id`, `permission_number`, `discount`, `price`, `priceFinal`, `finalPrice`, `taxes`, `created_at`, `updated_at`)
+VALUES
+	(1,3,2,1,3,1000.00,5600.00,5970.00,10,'2020-04-12 14:32:17','2020-04-12 14:32:17');
+
+/*!40000 ALTER TABLE `back_purchases` ENABLE KEYS */;
 UNLOCK TABLES;
 
 

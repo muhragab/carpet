@@ -1,27 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e2a0af49-ccfb-4f55-a5f3-eca6b861636d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Models/Purchases/BackPurchaseItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/carpets.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/carpets.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/AccountStatement.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AccountStatement.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AccountController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AccountController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AccountStatementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AccountStatementController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_19_075949_create_purchases_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_19_075949_create_purchases_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_19_122325_create_account_statements_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_19_122325_create_account_statements_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/mudir/accounts/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mudir/accounts/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/mudir/accounts/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mudir/accounts/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/mudir/includes/sidemenu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mudir/includes/sidemenu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/mudir.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/mudir.php" afterDir="false" />
+    <list default="true" id="e2a0af49-ccfb-4f55-a5f3-eca6b861636d" name="Default Changelist" comment="" />
+    <list id="aa261da4-3c37-4a7e-b9ea-d6fd3823e3b2" name="Revert: confirm push" comment="">
+      <change afterPath="$PROJECT_DIR$/Archive.zip" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/resources/js/app.js/" />
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
@@ -137,12 +119,21 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/mudir/purchases/back_purchase/show.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="145">
               <caret line="5" column="51" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/BackPurchaseComponent.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="319">
+              <caret line="232" lean-forward="true" selection-start-line="232" selection-end-line="232" />
             </state>
           </provider>
         </entry>
@@ -370,43 +361,6 @@
             <path>
               <item name="carpets" type="b2602c69:ProjectViewProjectNode" />
               <item name="carpets" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="carpets" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carpets" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="carpets" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carpets" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="carpets" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carpets" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="Api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="carpets" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carpets" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="carpets" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carpets" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="carpets" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carpets" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -544,6 +498,7 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="e2a0af49-ccfb-4f55-a5f3-eca6b861636d" name="Default Changelist" comment="" />
+      <changelist id="aa261da4-3c37-4a7e-b9ea-d6fd3823e3b2" name="Revert: confirm push" comment="" />
       <created>1582046304727</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -593,17 +548,20 @@
       <workItem from="1585322992281" duration="7143000" />
       <workItem from="1585776264996" duration="2627000" />
       <workItem from="1586372553887" duration="5153000" />
-      <workItem from="1586602470359" duration="13246000" />
+      <workItem from="1586602470359" duration="13408000" />
+      <workItem from="1586716527402" duration="11000" />
+      <workItem from="1586717836795" duration="255000" />
+      <workItem from="1586817219994" duration="244000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51025000" />
+    <option name="totallyTimeSpent" value="51697000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="779" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.34334764" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3583691" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -615,7 +573,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.3298193" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32900432" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.4051205" />
@@ -632,6 +590,32 @@
       <list>
         <option value="$PROJECT_DIR$/resources/js/app.js" />
       </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
     </option>
   </component>
   <component name="WindowStateProjectService">
@@ -653,13 +637,6 @@
     <state x="385" y="160" width="670" height="676" key="search.everywhere.popup/0.23.1440.813@0.23.1440.813" timestamp="1582046712581" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Models/Items/Category.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CategoryController.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -868,13 +845,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="5" column="48" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -969,13 +939,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/BackPurchaseComponent.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="225" column="56" selection-start-line="225" selection-start-column="56" selection-end-line="225" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/PurchaseBackController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="454">
@@ -1010,10 +973,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/mudir/purchases/back_purchase/show.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
           <caret line="5" column="51" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/BackPurchaseComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="232" lean-forward="true" selection-start-line="232" selection-end-line="232" />
         </state>
       </provider>
     </entry>

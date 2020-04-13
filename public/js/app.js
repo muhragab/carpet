@@ -37217,7 +37217,7 @@ var PurchaseComponent = /** @class */ (function (_super) {
             .then(function (response) {
             console.info(response.data);
             if (response.data == 'done') {
-                location.href = '/purchases/purchase';
+                location.href = '/purchases/back';
             }
         })
             .catch(function (error) {
