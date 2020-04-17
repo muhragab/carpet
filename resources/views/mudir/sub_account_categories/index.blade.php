@@ -33,7 +33,7 @@
                                 <tbody>
                                 @foreach($subAccountCategories as $subAccountCategory)
                                     <tr>
-                                        <td>{{ $subAccountCategory->category->title }}</td>
+                                        <td>@if ($subAccountCategory->category){{$subAccountCategory->category->title}} @endif</td>
                                         <td>{{ $subAccountCategory->title }}</td>
                                         <td>{{ $subAccountCategory->number }}</td>
                                         <td>
