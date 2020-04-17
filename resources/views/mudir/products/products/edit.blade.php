@@ -134,7 +134,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>سعر المتر</label>
-                                <input class="form-control" type="number" name="price_meter"
+                                <input class="form-control" type="text" name="price_meter"
                                        value="{{ $product->price_meter }}">
                             </div>
                         </div>

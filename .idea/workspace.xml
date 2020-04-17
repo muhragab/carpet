@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e2a0af49-ccfb-4f55-a5f3-eca6b861636d" name="Default Changelist" comment="" />
-    <list id="aa261da4-3c37-4a7e-b9ea-d6fd3823e3b2" name="Revert: confirm push" comment="">
-      <change afterPath="$PROJECT_DIR$/Archive.zip" afterDir="false" />
+    <list default="true" id="e2a0af49-ccfb-4f55-a5f3-eca6b861636d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/mudir/products/products/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mudir/products/products/edit.blade.php" afterDir="false" />
     </list>
+    <list id="0d0f567e-a037-4270-a485-00c2497e8dbd" name="confirm push" comment="" />
+    <list id="1150f032-b429-4c20-8f64-0de99956e6fe" name="confirm push A" comment="" />
+    <list id="aa261da4-3c37-4a7e-b9ea-d6fd3823e3b2" name="Revert: confirm push" comment="" />
     <ignored path="$PROJECT_DIR$/resources/js/app.js/" />
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
     <ignored path="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir/" />
@@ -119,22 +123,32 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/mudir/purchases/back_purchase/show.blade.php">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="5" column="51" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
+            <state relative-caret-position="430">
+              <caret line="153" column="57" selection-start-line="153" selection-start-column="57" selection-end-line="153" selection-end-column="57" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/BackPurchaseComponent.vue">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/mudir/products/products/create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="232" lean-forward="true" selection-start-line="232" selection-end-line="232" />
+            <state relative-caret-position="403">
+              <caret line="172" column="49" selection-start-line="172" selection-start-column="42" selection-end-line="172" selection-end-column="49" />
+              <folding>
+                <element signature="e#7301#7319#0#HTML" expanded="true" />
+              </folding>
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/mudir/products/products/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-887" />
           </provider>
         </entry>
       </file>
@@ -142,9 +156,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>showInStore</find>
-      <find>$store</find>
-      <find>stri</find>
       <find>transformation</find>
       <find>stores/transformation</find>
       <find>showSendStore</find>
@@ -172,6 +183,9 @@
       <find>purchase</find>
       <find>.purchase</find>
       <find>inventorie_id</find>
+      <find>pr</find>
+      <find>pri</find>
+      <find>error</find>
     </findStrings>
     <replaceStrings>
       <replace>.back_purchase</replace>
@@ -188,8 +202,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/mudir/purchases/purchase/create.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/PurchaseController.php" />
         <option value="$PROJECT_DIR$/app/Models/Purchases/Purchase.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PurchaseController.php" />
         <option value="$PROJECT_DIR$/resources/js/components/PurchaseComponent.vue" />
@@ -234,11 +246,13 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/PurchaseBackController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_04_12_103008_create_back_purchases_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_10_20_161559_create_back_purchase_items_table.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/BackPurchaseComponent.vue" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PurchaseBackController.php" />
         <option value="$PROJECT_DIR$/app/Models/Purchases/BackPurchase.php" />
         <option value="$PROJECT_DIR$/resources/views/mudir/purchases/back_purchase/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/mudir/purchases/back_purchase/show.blade.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/BackPurchaseComponent.vue" />
+        <option value="$PROJECT_DIR$/resources/views/mudir/products/products/edit.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" />
       </list>
     </option>
   </component>
@@ -351,6 +365,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -361,85 +376,25 @@
             <path>
               <item name="carpets" type="b2602c69:ProjectViewProjectNode" />
               <item name="carpets" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="carpets" type="b2602c69:ProjectViewProjectNode" />
               <item name="carpets" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="carpets" type="b2602c69:ProjectViewProjectNode" />
               <item name="carpets" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="carpets" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carpets" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="app.ts" type="620a8d5e:NestingTreeNode" />
-            </path>
-            <path>
-              <item name="carpets" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carpets" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="carpets" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carpets" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="mudir" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="carpets" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carpets" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="mudir" type="462c0819:PsiDirectoryNode" />
-              <item name="includes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="carpets" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carpets" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="mudir" type="462c0819:PsiDirectoryNode" />
-              <item name="purchases" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="carpets" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carpets" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="mudir" type="462c0819:PsiDirectoryNode" />
-              <item name="purchases" type="462c0819:PsiDirectoryNode" />
-              <item name="back_purchase" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="carpets" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carpets" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="mudir" type="462c0819:PsiDirectoryNode" />
-              <item name="purchases" type="462c0819:PsiDirectoryNode" />
-              <item name="purchase" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="carpets" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carpets" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -499,6 +454,8 @@
     <task active="true" id="Default" summary="Default task">
       <changelist id="e2a0af49-ccfb-4f55-a5f3-eca6b861636d" name="Default Changelist" comment="" />
       <changelist id="aa261da4-3c37-4a7e-b9ea-d6fd3823e3b2" name="Revert: confirm push" comment="" />
+      <changelist id="1150f032-b429-4c20-8f64-0de99956e6fe" name="confirm push A" comment="" />
+      <changelist id="0d0f567e-a037-4270-a485-00c2497e8dbd" name="confirm push" comment="" />
       <created>1582046304727</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -551,17 +508,19 @@
       <workItem from="1586602470359" duration="13408000" />
       <workItem from="1586716527402" duration="11000" />
       <workItem from="1586717836795" duration="255000" />
-      <workItem from="1586817219994" duration="244000" />
+      <workItem from="1586817219994" duration="710000" />
+      <workItem from="1587126152208" duration="846000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51697000" />
+    <option name="totallyTimeSpent" value="53009000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="779" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3583691" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.36337626" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -573,7 +532,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.3298193" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3298193" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32900432" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.4051205" />
@@ -617,6 +576,20 @@
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="458" y="189" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1582927565525">
@@ -637,30 +610,6 @@
     <state x="385" y="160" width="670" height="676" key="search.everywhere.popup/0.23.1440.813@0.23.1440.813" timestamp="1582046712581" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CategoryController.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mudir/sub_account_categories/fields.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="6" column="109" selection-start-line="6" selection-start-column="109" selection-end-line="6" selection-end-column="109" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mudir/sub_account_categories/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="17" column="67" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SalesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Requests/CreateSubAccountCategoryRequest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="385">
@@ -873,13 +822,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/mudir.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Purchases/PurchaseItem.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="58">
@@ -983,6 +925,13 @@
     <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/BackPurchaseComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="230" column="19" lean-forward="true" selection-start-line="230" selection-start-column="19" selection-end-line="230" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/mudir/purchases/back_purchase/show.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
@@ -990,10 +939,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/BackPurchaseComponent.vue">
+    <entry file="file://$PROJECT_DIR$/resources/views/mudir/products/products/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="232" lean-forward="true" selection-start-line="232" selection-end-line="232" />
+        <state relative-caret-position="-887" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/mudir/products/products/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="136" column="63" lean-forward="true" selection-start-line="136" selection-start-column="63" selection-end-line="136" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/mudir.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/mudir/products/products/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="172" column="49" selection-start-line="172" selection-start-column="42" selection-end-line="172" selection-end-column="49" />
+          <folding>
+            <element signature="e#7301#7319#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="153" column="57" selection-start-line="153" selection-start-column="57" selection-end-line="153" selection-end-column="57" />
         </state>
       </provider>
     </entry>

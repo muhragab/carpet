@@ -76,8 +76,11 @@ class ProductController extends Controller
             'maximum_demand_limit',
             'price_meter',
         ]);
-
-
+        $checkProduct = Product::where('name', $request->name)
+            ->where('sizes_length', $request->sizes_length)->where('sizes_width', $request->sizes_width)->first();
+        if (!empty($checkProduct)) {
+            return redirect()->back()->with('warning', 'تم تعريف الصنف من قبل ');
+        }
         // Uplode file
         if ($request->has('image_path')) {
             $file = $request->file('image_path');
@@ -89,7 +92,7 @@ class ProductController extends Controller
 
         Product::create($data);
 
-        return redirect()->route('products.index')->with('success', 'تم تعريف الصنف الجديد');
+        return redirect()->route('products.index')->with('warning', 'تم تعريف الصنف الجديد');
     }
 
     /**
@@ -148,7 +151,11 @@ class ProductController extends Controller
             'maximum_demand_limit',
             'price_meter',
         ]);
-
+        $checkProduct = Product::where('id', '!=', $product->id)->where('name', $request->name)
+            ->where('sizes_length', $request->sizes_length)->where('sizes_width', $request->sizes_width)->first();
+        if (!empty($checkProduct)) {
+            return redirect()->back()->with('warning', 'تم تعريف الصنف من قبل ');
+        }
         // Uplode file
         if ($request->has('image_path')) {
             $file = $request->file('image_path');
