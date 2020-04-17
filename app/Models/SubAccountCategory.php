@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\AccountStatement;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -47,10 +48,22 @@ class SubAccountCategory extends Model
         'number' => 'string'
     ];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleted(function ($category) {
+            $category->accountStatment()->delete();
+        });
+    }
+
+    public function accountStatment()
+    {
+        return $this->hasMany(AccountStatement::class, 'category');
+    }
+
     public function category()
     {
         return $this->belongsTo(AccountCategory::class, 'category_id');
     }
-
-
 }
