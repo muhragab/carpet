@@ -17,18 +17,20 @@ class AccountCategory extends Model
 {
     use SoftDeletes;
 
+    /**
+     * Validation rules
+     *
+     * @var array
+     */
+    public static $rules = [
+        'title' => 'required'
+    ];
     public $table = 'account_categories';
-    
-
-    protected $dates = ['deleted_at'];
-
-
-
     public $fillable = [
         'title',
         'number'
     ];
-
+    protected $dates = ['deleted_at'];
     /**
      * The attributes that should be casted to native types.
      *
@@ -40,14 +42,17 @@ class AccountCategory extends Model
         'number' => 'integer'
     ];
 
-    /**
-     * Validation rules
-     *
-     * @var array
-     */
-    public static $rules = [
-        'title' => 'required'
-    ];
+    protected static function boot()
+    {
+        parent::boot();
 
-    
+        static::deleted(function ($category) {
+            $category->subCategory()->delete();
+        });
+    }
+
+    public function subCategory()
+    {
+        return $this->hasMany(SubAccountCategory::class, 'category_id');
+    }
 }
