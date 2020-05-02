@@ -40,6 +40,9 @@
                                             @foreach($subCategory as $sub)
                                                 <option value="{{$sub->id}}">{{$sub->title}}</option>
                                             @endforeach
+                                            @foreach($Suppliers as $Supplier)
+                                                <option value="{{$Supplier->id}}">{{$Supplier->name}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>

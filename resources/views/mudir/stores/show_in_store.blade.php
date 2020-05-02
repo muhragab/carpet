@@ -25,34 +25,6 @@
                         </h1>
                     </div>
                 </div>
-                {{-- <form action="{{ route('stores_product.store') }}" method="POST" enctype="multipart/form-data">
-                     @CSRF
-                     <input type="hidden" name="store_id" value="{{ $store->id }}">
-                     <div class="row">
-                         <div class="col-md-8">
-                             <div class="form-group">
-                                 <label>الصنف</label>
-                                 <select class="form-control" name="product_id">
-                                     <option value=>اختيار الصنف</option>
-                                     @foreach($products as $product)
-                                         <option value="{{ $product->id }}">{{ $product->full_name }}</option>
-                                     @endforeach
-                                 </select>
-                             </div>
-                         </div>
-                         <div class="col-md-4">
-                             <div class="form-group">
-                                 <label>العدد</label>
-                                 <input class="form-control" type="number" name="number" min="0" value="">
-                             </div>
-                         </div>
-                         <div class="col-md-12">
-                             <div class="form-group">
-                                 <button type="submit" class="btn btn-success">اضافة</button>
-                             </div>
-                         </div>
-                     </div>
-                 </form>--}}
                 <div class="panel panel-default">
                     <div class="table-responsive">
                         <table id="example1" class="table table-bordered table-striped dt-responsive nowrap">
@@ -62,31 +34,26 @@
                                 <th>المتر المربع</th>
                                 <th>السعر</th>
                                 <th>العدد</th>
-                                <th>الحاله</th>
+                                <th>التاريخ</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($store->logs_transfer_to as $log)
+                            @foreach($products as $product)
+
                                 <tr>
                                     <td>
-                                        <p><b>التحويل من</b> {{ $log->store_from->name }}</p>
-                                        <p>{{ $log->product->full_name }}</p>
-                                        <p>
-                                            <b>التاريخ</b> {{ $log->transfer_date ?? $log->created_at->format('Y-m-d')}}
-                                        </p>
+                                        <p>{{ $product->product->full_name }}</p>
                                     </td>
-                                    <td>{{ $log->product->sizes_length*$log->product->sizes_width }}
-                                        ({{ $log->product->sizes_length*$log->product->sizes_width*$log->number }}
+                                    <td>{{ $product->product->sizes_length*$product->product->sizes_width }}
+                                        ({{ $product->product->sizes_length*$product->product->sizes_width*$product->number }}
                                         )
                                     </td>
-                                    <td>{{ $log->product->price_meter }}
-                                        ({{ $log->product->price_meter*$log->number }})
+                                    <td>{{ $product->product->price_meter }}
+                                        ({{ $product->product->price_meter*$product->number }})
                                     </td>
-                                    <td>{{ $log->number }}</td>
+                                    <td>{{ $product->numbers }}</td>
                                     <td>
-                                        @if($log->acceptance == 'pending') قيد الانتظار @endif
-                                        @if($log->acceptance == 'yes') مقبول @endif
-                                        @if($log->acceptance == 'no') مرفوض @endif
+                                      {{$product->created_at}}
                                     </td>
                                 </tr>
                             @endforeach

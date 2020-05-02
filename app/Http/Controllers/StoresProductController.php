@@ -46,17 +46,6 @@ class StoresProductController extends Controller
                 return back()->with('warning', 'يجب ان تكون القيمة اكبر من 0');
             }
             $store = Store::where('id', '=', $data['store_id'])->first();
-            /*$prod = StoresProduct::where(
-                'store_id', $data['store_id'])
-                ->where(
-                    'product_id', $data['product_id']
-                )->first();
-            if ($prod) {
-                $prod->number += $data['number'];
-                $prod->save();
-                $store->activityAdd('store:update:value');
-            } else {*/
-
             StoresProduct::create([
                 'store_id' => $data['store_id'],
                 'product_id' => $data['product_id'],

@@ -47,8 +47,8 @@
                                     <td>#{{ $log->orderNumber }}</td>
                                     <td>{{ $log->number }}</td>
                                     <td>{{ $log->store_to->name }}</td>
-                                    <td>{{ $log->transfer_date }}</td>
                                     <td>{{ $log->product->name }}</td>
+                                    <td>{{ $log->transfer_date }}</td>
                                     <td>{{ $log->product->sizes_length*$log->product->sizes_width }}</td>
                                     <td>{{ $log->product->sizes_length*$log->product->sizes_width*$log->number }}</td>
                                     <td>{{ $log->product->price_meter }}

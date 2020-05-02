@@ -19,6 +19,7 @@ class Purchase extends Model
         'discount',
         'finalPrice',
         'price',
+        'allMeters',
         'priceFinal',
         'taxes'
     ];

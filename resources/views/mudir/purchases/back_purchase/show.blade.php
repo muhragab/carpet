@@ -40,6 +40,10 @@
                 <b>الضرائب:-</b>
                 <p>{{ $purchase->taxes }}</p>
             </div>
+            <div>
+                <b>اجمالي عدد الامتار:-</b>
+                <p>{{ $purchase->allMeters }}</p>
+            </div>
 
             <div>
                 <b>جدول المشريات:-</b>

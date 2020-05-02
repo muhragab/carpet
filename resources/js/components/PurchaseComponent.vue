@@ -22,7 +22,8 @@
                                     <label>المخزن</label>
                                     <select class="form-control" v-model="inventorie_id">
                                         <option value=""></option>
-                                        <option v-for="store in stores" :key="store.id" :value="store.id">{{store.name }}
+                                        <option v-for="store in stores" :key="store.id" :value="store.id">{{store.name
+                                            }}
                                         </option>
                                     </select>
                                 </div>
@@ -81,6 +82,8 @@
                                     <th>المنتج</th>
                                     <th>العدد</th>
                                     <th>سعر المتر المربع</th>
+                                    <th>المتر المربع</th>
+                                    <th>سعر القطعه الواحده</th>
                                     <th>الجمالي</th>
                                     <th width="9%"></th>
                                 </tr>
@@ -90,6 +93,8 @@
                                     <td>{{ item.product }}</td>
                                     <td>{{ item.number }}</td>
                                     <td>{{ item.price }}</td>
+                                    <td>{{ item.sizes_length * item.sizes_width}}</td>
+                                    <td>{{ item.sizes_length * item.sizes_width * item.price}}</td>
                                     <td class="kt-font-danger kt-font-lg">{{ item.cost }}</td>
                                     <td>
                                         <a class="btn btn-danger btn-xs" @click="itemRemove(item)">حذف</a>
@@ -100,17 +105,22 @@
                         </div>
                         <!-- /.table-responsive -->
                         <div class="row" style="text-align: center;">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <b>الاجمالي</b>
                                 <input class="form-control" disabled type="text" v-model="outTotal"
                                        placeholder="اجمالي السعر ">
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
+                                <b>اجمالي الامتار</b>
+                                <input class="form-control" disabled type="text" v-model="meters"
+                                       placeholder="اجمالي السعر ">
+                            </div>
+                            <div class="col-md-3">
                                 <b>ض . ق . م</b>
                                 <input class="form-control" type="number" v-model="taxes" placeholder="قيمة الضرائب">
                                 <p>{{ outTotal+(outTotal*taxes/100) }} ({{ taxes }}%)</p>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <b>اجمالي السعر بعد الضريبه</b>
                                 <b class="form-control" disabled=""> {{outTotal+(outTotal*taxes/100)}}</b>
                             </div>
@@ -168,8 +178,8 @@
         permission: any = [];
         product: any = [];
         items: any = [];
-
         outTotal: number = 0;
+        meters: number = 0;
         taxes: number = 0;
         discount: number = 0;
 
@@ -204,6 +214,8 @@
                 product: this.product.name + ' ' + this.product.sizes_length + '×' + this.product.sizes_width,
                 product_id: this.product.id,
                 number: this.number,
+                sizes_length: this.product.sizes_length,
+                sizes_width: this.product.sizes_width,
                 price: this.price,
                 cost: ((this.product.sizes_length * this.product.sizes_width) * this.price) * this.number,
             };
@@ -215,6 +227,7 @@
             this.price = '';
 
             this.calcTotal();
+            this.calcMeters();
 
         }
 
@@ -228,6 +241,7 @@
                 finalPrice: this.finalPrice,
                 items: this.items,
                 allPrice: this.outTotal,
+                allMeters: this.meters,
                 taxes: this.taxes,
                 discount: this.discount
             })
@@ -254,6 +268,7 @@
                 if (item === doc) this.items.splice(index, 1);
             });
             this.calcTotal();
+            this.calcMeters();
         }
 
         calcTotal() {
@@ -262,6 +277,14 @@
                 outTotal += item.cost;
             });
             this.outTotal = outTotal;
+        }
+
+        calcMeters() {
+            let meters = 0;
+            this.items.forEach(item => {
+                meters += (item.sizes_length * item.sizes_width * item.number);
+            });
+            this.meters = meters;
         }
     }
 </script>

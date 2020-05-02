@@ -59,22 +59,30 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-success">التحويل</button>
+                                    <button type="submit" class="btn btn-success  form-control">التحويل</button>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <a class="btn btn-primary add-more-btn form-control">المزيد</a>
                                 </div>
                             </div>
                         </div>
-                        <a class="btn btn-primary add-more-btn">المزيد</a>
+                        <style>
+                            .more {
+                                margin-top: -15px;
+                            }
+                        </style>
                         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
                                 type="text/javascript"></script>
                         <script>
                             var i = 2;
 
                             $(".add-more-btn").click(function () {
-                                $(".form-block").append('<div class="col-md-8">\n' +
-                                    '                                    <div class="form-group">\n' +
-                                    '                                        <label>الصنف</label>\n' +
+                                $(".form-block").append('<div class="col-md-8 more">\n' +
+                                    '                                    <div class="form-group ">\n' +
                                     '                                        <select class="form-control" name="row[' + i + '][product_id]">\n' +
                                     '                                            <option value=>اختيار الصنف</option>\n' +
                                     '                                            @foreach($store->products as $product)\n' +
@@ -84,9 +92,8 @@
                                     '                                        </select>\n' +
                                     '                                    </div>\n' +
                                     '                                </div>\n' +
-                                    '                                <div class="col-md-4">\n' +
+                                    '                                <div class="col-md-4 more ">\n' +
                                     '                                    <div class="form-group">\n' +
-                                    '                                        <label>العدد</label>\n' +
                                     '                                        <input class="form-control" type="number" name="row[' + i + '][number]" min="0" value="">\n' +
                                     '                                    </div>\n' +
                                     '                                </div>');

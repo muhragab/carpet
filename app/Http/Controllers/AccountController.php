@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Account;
 use App\Models\AccountCategory;
+use App\Models\Purchases\Supplier;
 use App\Models\SubAccountCategory;
 use Illuminate\Http\Request;
 
@@ -53,7 +54,8 @@ class AccountController extends Controller
     {
         return view('mudir.accounts.show')
             ->withAccount($account)
-            ->with('subCategory' , SubAccountCategory::get());
+            ->with('subCategory' , SubAccountCategory::get())
+            ->with('Suppliers' , Supplier::get());
     }
 
     /**

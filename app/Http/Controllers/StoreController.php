@@ -27,6 +27,8 @@ class StoreController extends Controller
         $store = Store::where('id', $id)->first();
         $products = Product::get();
         $stores = Store::get();
+        $lastOrder = StoresProduct::latest()->first();
+        $newOrderNumber = $lastOrder->storeNumber + 1;
         $logs = StoreTransferLog::where('store_to_id', '=', $store->id)
             ->where('acceptance', '=', 'pending')
             ->get();
@@ -34,21 +36,18 @@ class StoreController extends Controller
             ->withStore($store)
             ->withStores($stores)
             ->withProducts($products)
-            ->withLogs($logs);
+            ->withLogs($logs)
+            ->with('newOrderNumber',$newOrderNumber);
     }
 
     public function showInStore($id)
     {
         $store = Store::where('id', $id)->first();
-//        $products = Product::get();
-//        $stores = Store::get();
-//        $logs = StoreTransferLog::where('store_to_id', '=', $store->id)
-//            ->where('acceptance', '=', 'pending')
-//            ->get();
-
-        $products = StoresProduct::where('store_id', $id)->groupBy(['product_id', 'store_id'])
+        $products = StoresProduct::where('store_id', $id)
+            ->groupBy(['product_id'])
             ->selectRaw('*, sum(number) as numbers')
             ->get();
+        //dd($products);
         return view('mudir.stores.show_in_store')
             ->withStore($store)
             ->withProducts($products);

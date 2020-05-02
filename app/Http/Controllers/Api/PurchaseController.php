@@ -35,7 +35,7 @@ class PurchaseController extends Controller
         ]);
 
         $data['price'] = null;
-        $final = array_merge($data, ['priceFinal' => $request->allPrice]);
+        $final = array_merge($data, ['priceFinal' => $request->allPrice, 'allMeters' => $request->allMeters]);
         $purchase = Purchase::create($final);
         $items = $request->items;
 

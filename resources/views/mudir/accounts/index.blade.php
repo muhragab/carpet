@@ -44,12 +44,12 @@
                                                 <a href="{{ route('accounts_statement.show', [$account , 'account' => $account,'type' => 'creditor']) }}"
                                                    class="btn btn-info">
                                                     <span class="fa fa-fw fa-eye"></span>
-                                                    المصروفات
+                                                    المقبوضات
                                                 </a>
                                                 <a href="{{ route('accounts_statement.show', [$account , 'account' => $account,'type' => 'debtor']) }}"
                                                    class="btn btn-info">
                                                     <span class="fa fa-fw fa-eye"></span>
-                                                    المقبوضات
+                                                    المصروفات
                                                 </a>
 
                                                 <a href="{{ route('accounts.edit', [$account]) }}" class="btn btn-info">

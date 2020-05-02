@@ -16,6 +16,7 @@ class BackPurchase extends Model
         'discount',
         'finalPrice',
         'price',
+        'allMeters',
         'priceFinal',
         'taxes'
     ];

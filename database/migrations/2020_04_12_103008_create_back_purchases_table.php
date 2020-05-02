@@ -20,6 +20,7 @@ class CreateBackPurchasesTable extends Migration
             $table->integer('permission_number')->nullable();
             $table->integer('discount')->nullable();
             $table->decimal('price', 8, 2)->nullable();
+            $table->string('allMeters');
             $table->decimal('priceFinal', 8, 2)->nullable();
             $table->decimal('finalPrice', 8, 2)->nullable();
             $table->integer('taxes')->nullable();

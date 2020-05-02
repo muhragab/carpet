@@ -20,7 +20,7 @@ class PurchaseBackController extends Controller
 
     public function save(Request $request)
     {
-      //SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a
+        //SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a
         // child row: a foreign key constraint fails
         // (`carpts`.`back_purchase_items`, CONSTRAINT `
         //back_purchase_items_purchase_id_foreign` FOREIGN KEY (`purchase_id`)
@@ -36,7 +36,7 @@ class PurchaseBackController extends Controller
         ]);
 
         $data['price'] = null;
-        $final = array_merge($data, ['priceFinal' => $request->allPrice]);
+        $final = array_merge($data, ['priceFinal' => $request->allPrice, 'allMeters' => $request->allMeters]);
         $purchase = BackPurchase::create($final);
         $items = $request->items;
 

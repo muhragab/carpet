@@ -19,6 +19,7 @@ class CreatePurchasesTable extends Migration
             $table->unsignedBigInteger('inventorie_id')->index()->nullable();
             $table->integer('permission_number')->nullable();
             $table->decimal('price', 8, 2)->nullable();
+            $table->string('allMeters');
             $table->integer('taxes')->nullable();
             $table->timestamps();
 

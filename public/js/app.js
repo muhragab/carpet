@@ -37173,6 +37173,7 @@ var PurchaseComponent = /** @class */ (function (_super) {
         _this.product = [];
         _this.items = [];
         _this.outTotal = 0;
+        _this.meters = 0;
         _this.taxes = 0;
         _this.discount = 0;
         return _this;
@@ -37186,12 +37187,15 @@ var PurchaseComponent = /** @class */ (function (_super) {
         axios_1.default.get('/api/get-all-product').then(function (response) { return (_this.products = response.data); });
         axios_1.default.get('/api/get-all-stores').then(function (response) { return (_this.stores = response.data); });
         this.calcTotal();
+        this.calcMeter();
     };
     PurchaseComponent.prototype.submitEntry = function () {
         var dataAdd = {
             product: this.product.name + ' ' + this.product.sizes_length + '×' + this.product.sizes_width,
             product_id: this.product.id,
             number: this.number,
+            sizes_length: this.product.sizes_length,
+            sizes_width: this.product.sizes_width,
             price: this.price,
             cost: ((this.product.sizes_length * this.product.sizes_width) * this.price) * this.number,
         };
@@ -37200,6 +37204,7 @@ var PurchaseComponent = /** @class */ (function (_super) {
         this.number = '';
         this.price = '';
         this.calcTotal();
+        this.calcMeter();
     };
     PurchaseComponent.prototype.formSubmit = function (e) {
         e.preventDefault();
@@ -37211,6 +37216,7 @@ var PurchaseComponent = /** @class */ (function (_super) {
             finalPrice: this.finalPrice,
             items: this.items,
             allPrice: this.outTotal,
+            allMeters: this.meters,
             taxes: this.taxes,
             discount: this.discount
         })
@@ -37238,6 +37244,7 @@ var PurchaseComponent = /** @class */ (function (_super) {
                 _this.items.splice(index, 1);
         });
         this.calcTotal();
+        this.calcMeter();
     };
     PurchaseComponent.prototype.calcTotal = function () {
         var outTotal = 0;
@@ -37245,6 +37252,13 @@ var PurchaseComponent = /** @class */ (function (_super) {
             outTotal += item.cost;
         });
         this.outTotal = outTotal;
+    };
+    PurchaseComponent.prototype.calcMeter = function () {
+        var meters = 0;
+        this.items.forEach(function (item) {
+            meters += (item.sizes_length * item.sizes_width * item.number);
+        });
+        this.meters = meters;
     };
     PurchaseComponent = __decorate([
         vue_property_decorator_1.Component
@@ -37328,6 +37342,7 @@ var PurchaseComponent = /** @class */ (function (_super) {
         _this.product = [];
         _this.items = [];
         _this.outTotal = 0;
+        _this.meters = 0;
         _this.taxes = 0;
         _this.discount = 0;
         return _this;
@@ -37360,6 +37375,8 @@ var PurchaseComponent = /** @class */ (function (_super) {
             product: this.product.name + ' ' + this.product.sizes_length + '×' + this.product.sizes_width,
             product_id: this.product.id,
             number: this.number,
+            sizes_length: this.product.sizes_length,
+            sizes_width: this.product.sizes_width,
             price: this.price,
             cost: ((this.product.sizes_length * this.product.sizes_width) * this.price) * this.number,
         };
@@ -37368,6 +37385,7 @@ var PurchaseComponent = /** @class */ (function (_super) {
         this.number = '';
         this.price = '';
         this.calcTotal();
+        this.calcMeters();
     };
     PurchaseComponent.prototype.formSubmit = function (e) {
         e.preventDefault();
@@ -37379,6 +37397,7 @@ var PurchaseComponent = /** @class */ (function (_super) {
             finalPrice: this.finalPrice,
             items: this.items,
             allPrice: this.outTotal,
+            allMeters: this.meters,
             taxes: this.taxes,
             discount: this.discount
         })
@@ -37406,6 +37425,7 @@ var PurchaseComponent = /** @class */ (function (_super) {
                 _this.items.splice(index, 1);
         });
         this.calcTotal();
+        this.calcMeters();
     };
     PurchaseComponent.prototype.calcTotal = function () {
         var outTotal = 0;
@@ -37413,6 +37433,13 @@ var PurchaseComponent = /** @class */ (function (_super) {
             outTotal += item.cost;
         });
         this.outTotal = outTotal;
+    };
+    PurchaseComponent.prototype.calcMeters = function () {
+        var meters = 0;
+        this.items.forEach(function (item) {
+            meters += (item.sizes_length * item.sizes_width * item.number);
+        });
+        this.meters = meters;
     };
     PurchaseComponent = __decorate([
         vue_property_decorator_1.Component
@@ -38141,6 +38168,18 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(item.price))]),
                         _vm._v(" "),
+                        _c("td", [
+                          _vm._v(_vm._s(item.sizes_length * item.sizes_width))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              item.sizes_length * item.sizes_width * item.price
+                            )
+                          )
+                        ]),
+                        _vm._v(" "),
                         _c("td", { staticClass: "kt-font-danger kt-font-lg" }, [
                           _vm._v(_vm._s(item.cost))
                         ]),
@@ -38171,7 +38210,7 @@ var render = function() {
               "div",
               { staticClass: "row", staticStyle: { "text-align": "center" } },
               [
-                _c("div", { staticClass: "col-md-4" }, [
+                _c("div", { staticClass: "col-md-3" }, [
                   _c("b", [_vm._v("الاجمالي")]),
                   _vm._v(" "),
                   _c("input", {
@@ -38201,7 +38240,37 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-md-4" }, [
+                _c("div", { staticClass: "col-md-3" }, [
+                  _c("b", [_vm._v("اجمالي الامتار")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.meters,
+                        expression: "meters"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      disabled: "",
+                      type: "text",
+                      placeholder: "اجمالي السعر "
+                    },
+                    domProps: { value: _vm.meters },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.meters = $event.target.value
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-3" }, [
                   _c("b", [_vm._v("ض . ق . م")]),
                   _vm._v(" "),
                   _c("input", {
@@ -38236,7 +38305,7 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-md-4" }, [
+                _c("div", { staticClass: "col-md-3" }, [
                   _c("b", [_vm._v("اجمالي السعر بعد الضريبه")]),
                   _vm._v(" "),
                   _c(
@@ -38360,6 +38429,10 @@ var staticRenderFns = [
         _c("th", [_vm._v("العدد")]),
         _vm._v(" "),
         _c("th", [_vm._v("سعر المتر المربع")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("المتر المربع")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("سعر القطعه الواحده")]),
         _vm._v(" "),
         _c("th", [_vm._v("الجمالي")]),
         _vm._v(" "),
@@ -38725,6 +38798,18 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(item.price))]),
                         _vm._v(" "),
+                        _c("td", [
+                          _vm._v(_vm._s(item.sizes_length * item.sizes_width))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              item.sizes_length * item.sizes_width * item.price
+                            )
+                          )
+                        ]),
+                        _vm._v(" "),
                         _c("td", { staticClass: "kt-font-danger kt-font-lg" }, [
                           _vm._v(_vm._s(item.cost))
                         ]),
@@ -38755,7 +38840,7 @@ var render = function() {
               "div",
               { staticClass: "row", staticStyle: { "text-align": "center" } },
               [
-                _c("div", { staticClass: "col-md-4" }, [
+                _c("div", { staticClass: "col-md-3" }, [
                   _c("b", [_vm._v("الاجمالي")]),
                   _vm._v(" "),
                   _c("input", {
@@ -38785,7 +38870,37 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-md-4" }, [
+                _c("div", { staticClass: "col-md-3" }, [
+                  _c("b", [_vm._v("اجمالي الامتار")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.meters,
+                        expression: "meters"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      disabled: "",
+                      type: "text",
+                      placeholder: "اجمالي السعر "
+                    },
+                    domProps: { value: _vm.meters },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.meters = $event.target.value
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-3" }, [
                   _c("b", [_vm._v("ض . ق . م")]),
                   _vm._v(" "),
                   _c("input", {
@@ -38820,7 +38935,7 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-md-4" }, [
+                _c("div", { staticClass: "col-md-3" }, [
                   _c("b", [_vm._v("اجمالي السعر بعد الضريبه")]),
                   _vm._v(" "),
                   _c(
@@ -38944,6 +39059,10 @@ var staticRenderFns = [
         _c("th", [_vm._v("العدد")]),
         _vm._v(" "),
         _c("th", [_vm._v("سعر المتر المربع")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("المتر المربع")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("سعر القطعه الواحده")]),
         _vm._v(" "),
         _c("th", [_vm._v("الجمالي")]),
         _vm._v(" "),
