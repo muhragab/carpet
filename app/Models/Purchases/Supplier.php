@@ -19,7 +19,8 @@ class Supplier extends Model
         'fax_number',
         'email',
         'is_supplier',
-        'is_client'
+        'is_client',
+        'status',
     ];
 
     public function getIsAttribute()

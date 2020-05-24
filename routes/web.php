@@ -11,5 +11,19 @@
 |
 */
 
+
+Route::get('/viewclear', function () {
+    Artisan::call('view:clear');
+    return 'done';
+});
+Route::get('/cacheclear', function () {
+    Artisan::call('cache:clear');    return 'done';
+});
+Route::get('/configclear', function () {
+    Artisan::call('config:clear');    return 'done';
+
+});
 Route::get('logout', 'Auth\LoginController@logout');
 Auth::routes();
+
+

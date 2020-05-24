@@ -2,6 +2,7 @@
 
 namespace App\Models\Purchases;
 
+use App\Store;
 use Illuminate\Database\Eloquent\Model;
 
 class Purchase extends Model
@@ -21,12 +22,17 @@ class Purchase extends Model
         'price',
         'allMeters',
         'priceFinal',
-        'taxes'
+        'taxes',
+        'date'
     ];
 
     public function supplier()
     {
         return $this->hasOne(Supplier::class, 'id', 'supplier_id');
+    }
+    public function stores()
+    {
+        return $this->hasOne(Store::class, 'id', 'inventorie_id');
     }
 
     public function items()

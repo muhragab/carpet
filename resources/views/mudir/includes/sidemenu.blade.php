@@ -68,6 +68,9 @@
             <li>
                 <a href="{{ route('sales.index') }}">المبيعات</a>
             </li>
+            <li>
+                <a class="" href="{{ route('salesMen.index') }}">مندوب المبيعات </a>
+            </li>
         </ul>
         <!-- /.nav-second-level -->
     </li>

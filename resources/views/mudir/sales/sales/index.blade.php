@@ -21,7 +21,11 @@
                             <tr>
                                 <th width="10%">#</th>
                                 <th>اسم المورد</th>
+                                <th> اسم المخزن</th>
                                 <th>رقم الاذن</th>
+                                <th>اسم المندوب </th>
+                                <th> اجمالي الفاتوره </th>
+                                <th>التاريخ  </th>
                                 <th width="10%"></th>
                             </tr>
                         </thead>
@@ -30,7 +34,11 @@
                             <tr>
                                 <td>{{ $sale->id }}</td>
                                 <td>{{ $sale->supplier->name }}</td>
+                                <td>{{ $sale->stores->name }}</td>
                                 <td>{{ (!empty($sale->permission_number)) ? $sale->permission_number : '-' }}</td>
+                                <td>{{ $sale->saleMan->name }}</td>
+                                <td>{{ $sale->finalPrice }}</td>
+                                <td>{{ $sale->date }}</td>
                                 <td>
                                     <div class="btn-group btn-group-sm">
                                         <a href="{{ route('sales.show', $sale) }}" class="btn btn-info">عرض</a>

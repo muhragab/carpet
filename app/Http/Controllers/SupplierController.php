@@ -58,7 +58,8 @@ class SupplierController extends Controller
             'fax_number',
             'email',
             'is_supplier',
-            'is_client'
+            'is_client',
+            'status',
         ]);
 
         Supplier::create($data);
@@ -119,6 +120,8 @@ class SupplierController extends Controller
             'ground_number',
             'fax_number',
             'email',
+            'status',
+
         ]);
         $data['is_supplier'] = ($request->has('is_supplier')) ? 1 : 0;
         $data['is_client'] = ($request->has('is_client')) ? 1 : 0;

@@ -7,7 +7,7 @@
                     <div class="panel-body">
                         <div class="row">
 
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label>المخزن</label>
                                     <select class="form-control" v-model="inventorie_id">
@@ -18,7 +18,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label>الموردين</label>
                                     <select class="form-control" v-model="supplier_id">
@@ -29,10 +29,17 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label>رقم الاذن</label>
                                     <input disabled class="form-control" :value="permission"/>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>التاريخ</label>
+                                    <input type="date" class="form-control" v-model="date" />
                                 </div>
                             </div>
                         </div>
@@ -85,6 +92,7 @@
                                     <th>سعر المتر المربع</th>
                                     <th>المتر المربع</th>
                                     <th>سعر القطعه الواحده</th>
+                                    <th>اجمالي الامتار</th>
                                     <th>الجمالي</th>
                                     <th width="9%"></th>
                                 </tr>
@@ -96,6 +104,7 @@
                                     <td>{{ item.price }}</td>
                                     <td>{{ item.sizes_length * item.sizes_width}}</td>
                                     <td>{{ item.sizes_length * item.sizes_width * item.price}}</td>
+                                    <td>{{ item.sizes_length * item.sizes_width * item.number}}</td>
                                     <td class="kt-font-danger kt-font-lg">{{ item.cost }}</td>
                                     <td>
                                         <a class="btn btn-danger btn-xs" @click="itemRemove(item)">حذف</a>
@@ -171,6 +180,7 @@
         finalPrice: any = '';
         product_id: any = '';
         number: any = '';
+        date: any = '';
         price: any = '';
         suppliers: any = [];
         products: any = [];
@@ -230,6 +240,7 @@
                 inventorie_id: this.inventorie_id,
                 permission_number: this.permission,
                 finalPrice: this.finalPrice,
+                date: this.date,
                 items: this.items,
                 allPrice: this.outTotal,
                 allMeters: this.meters,

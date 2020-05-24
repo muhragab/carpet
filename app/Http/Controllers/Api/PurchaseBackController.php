@@ -32,7 +32,8 @@ class PurchaseBackController extends Controller
             'permission_number',
             'finalPrice',
             'discount',
-            'taxes'
+            'taxes',
+            'date'
         ]);
 
         $data['price'] = null;

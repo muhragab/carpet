@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\SalesMan;
 use Illuminate\Http\Request;
 
 use App\Models\Purchases\SupplierAccount;
@@ -10,16 +11,30 @@ use App\Models\Sales\{Sale, SaleItem};
 
 class SaleController extends Controller
 {
+    public function permission_number()
+    {
+        return $oreder_number = Sale::count() + 1;
+    }
+
+    public function salesMen()
+    {
+        return SalesMan::get();
+    }
+
     public function save(Request $request)
     {
         $data = $request->only([
             'supplier_id',
+            'sale_man',
             'inventorie_id',
             'permission_number',
-            'taxes'
+            'finalPrice',
+            'discount',
+            'taxes',
+            'date'
         ]);
 
-        $data['price'] = null; 
+        $data['price'] = null;
 
         $sale = Sale::create($data);
 
@@ -31,7 +46,7 @@ class SaleController extends Controller
                 'product_id' => $item['product_id'],
                 'number' => $item['number'],
                 'price' => $item['price'],
-                'total_price' => $item['number']*$item['price']
+                'total_price' => $item['number'] * $item['price']
             ]);
         }
 

@@ -37164,6 +37164,7 @@ var PurchaseComponent = /** @class */ (function (_super) {
         _this.finalPrice = '';
         _this.product_id = '';
         _this.number = '';
+        _this.date = '';
         _this.price = '';
         _this.suppliers = [];
         _this.products = [];
@@ -37214,6 +37215,7 @@ var PurchaseComponent = /** @class */ (function (_super) {
             inventorie_id: this.inventorie_id,
             permission_number: this.permission,
             finalPrice: this.finalPrice,
+            date: this.date,
             items: this.items,
             allPrice: this.outTotal,
             allMeters: this.meters,
@@ -37333,6 +37335,7 @@ var PurchaseComponent = /** @class */ (function (_super) {
         _this.finalPrice = '';
         _this.product_id = '';
         _this.number = '';
+        _this.date = '';
         _this.price = '';
         _this.suppliers = [];
         _this.products = [];
@@ -37349,8 +37352,6 @@ var PurchaseComponent = /** @class */ (function (_super) {
     }
     PurchaseComponent.prototype.mounted = function () {
         var _this = this;
-        console.log('Component mounted.');
-        console.log(this.permission);
         axios_1.default.get('/api/supplier/all?type=supplier').then(function (response) { return (_this.suppliers = response.data); });
         axios_1.default.get('/api/permission/number').then(function (response) { return (_this.permission = response.data); });
         axios_1.default.get('/api/get-all-product').then(function (response) { return (_this.products = response.data); });
@@ -37395,6 +37396,7 @@ var PurchaseComponent = /** @class */ (function (_super) {
             inventorie_id: this.inventorie_id,
             permission_number: this.permission,
             finalPrice: this.finalPrice,
+            date: this.date,
             items: this.items,
             allPrice: this.outTotal,
             allMeters: this.meters,
@@ -37492,41 +37494,44 @@ var SalesComponent = /** @class */ (function (_super) {
         _this.supplier_id = '';
         _this.inventorie_id = '';
         _this.permission_number = '';
+        _this.finalPrice = '';
         _this.product_id = '';
         _this.number = '';
+        _this.date = '';
         _this.price = '';
         _this.suppliers = [];
         _this.products = [];
+        _this.stores = [];
+        _this.store = [];
+        _this.salesMen = [];
+        _this.saleMan = [];
+        _this.sale_id = '';
+        _this.permission = [];
         _this.product = [];
         _this.items = [];
+        _this.outTotal = 0;
+        _this.meters = 0;
         _this.taxes = 0;
+        _this.discount = 0;
         return _this;
     }
     SalesComponent.prototype.mounted = function () {
         var _this = this;
-        console.log('Component mounted.');
         axios_1.default.get('/api/supplier/all?type=client').then(function (response) { return (_this.suppliers = response.data); });
+        axios_1.default.get('/api/sales/permission/number').then(function (response) { return (_this.permission = response.data); });
         axios_1.default.get('/api/get-all-product').then(function (response) { return (_this.products = response.data); });
+        axios_1.default.get('/api/get-all-stores').then(function (response) { return (_this.stores = response.data); });
+        axios_1.default.get('/api/get-all-sales-man').then(function (response) { return (_this.salesMen = response.data); });
         this.calcTotal();
+        this.calcMeters();
     };
-    // data () {
-    //     return {
-    //         supplier_id: '',
-    //         inventorie_id: '',
-    //         product_id: '',
-    //         number: '',
-    //         price: '',
-    //         suppliers: [],
-    //         products: [],
-    //         product: null,
-    //         items: []
-    //     }
-    // }
     SalesComponent.prototype.submitEntry = function () {
         var dataAdd = {
             product: this.product.name + ' ' + this.product.sizes_length + '×' + this.product.sizes_width,
             product_id: this.product.id,
             number: this.number,
+            sizes_length: this.product.sizes_length,
+            sizes_width: this.product.sizes_width,
             price: this.price,
             cost: ((this.product.sizes_length * this.product.sizes_width) * this.price) * this.number,
         };
@@ -37535,6 +37540,7 @@ var SalesComponent = /** @class */ (function (_super) {
         this.number = '';
         this.price = '';
         this.calcTotal();
+        this.calcMeters();
     };
     SalesComponent.prototype.formSubmit = function (e) {
         e.preventDefault();
@@ -37542,9 +37548,15 @@ var SalesComponent = /** @class */ (function (_super) {
         axios_1.default.post('/api/sale/save', {
             supplier_id: this.supplier_id,
             inventorie_id: this.inventorie_id,
-            permission_number: this.permission_number,
+            sale_man: this.sale_id,
+            permission_number: this.permission,
+            finalPrice: this.finalPrice,
+            date: this.date,
             items: this.items,
-            taxes: this.taxes
+            allPrice: this.outTotal,
+            allMeters: this.meters,
+            taxes: this.taxes,
+            discount: this.discount
         })
             .then(function (response) {
             console.info(response.data);
@@ -37570,6 +37582,7 @@ var SalesComponent = /** @class */ (function (_super) {
                 _this.items.splice(index, 1);
         });
         this.calcTotal();
+        this.calcMeters();
     };
     SalesComponent.prototype.calcTotal = function () {
         var outTotal = 0;
@@ -37577,6 +37590,13 @@ var SalesComponent = /** @class */ (function (_super) {
             outTotal += item.cost;
         });
         this.outTotal = outTotal;
+    };
+    SalesComponent.prototype.calcMeters = function () {
+        var meters = 0;
+        this.items.forEach(function (item) {
+            meters += (item.sizes_length * item.sizes_width * item.number);
+        });
+        this.meters = meters;
     };
     SalesComponent = __decorate([
         vue_property_decorator_1.Component
@@ -37897,7 +37917,7 @@ var render = function() {
         _c("div", { staticClass: "panel panel-default" }, [
           _c("div", { staticClass: "panel-body" }, [
             _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-4" }, [
+              _c("div", { staticClass: "col-md-3" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", [_vm._v("المخزن")]),
                   _vm._v(" "),
@@ -37950,7 +37970,7 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-4" }, [
+              _c("div", { staticClass: "col-md-3" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", [_vm._v("الموردين")]),
                   _vm._v(" "),
@@ -38006,7 +38026,7 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-4" }, [
+              _c("div", { staticClass: "col-md-3" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", [_vm._v("رقم الاذن")]),
                   _vm._v(" "),
@@ -38014,6 +38034,34 @@ var render = function() {
                     staticClass: "form-control",
                     attrs: { disabled: "" },
                     domProps: { value: _vm.permission }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("التاريخ")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.date,
+                        expression: "date"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "date" },
+                    domProps: { value: _vm.date },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.date = $event.target.value
+                      }
+                    }
                   })
                 ])
               ])
@@ -38176,6 +38224,14 @@ var render = function() {
                           _vm._v(
                             _vm._s(
                               item.sizes_length * item.sizes_width * item.price
+                            )
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              item.sizes_length * item.sizes_width * item.number
                             )
                           )
                         ]),
@@ -38433,6 +38489,8 @@ var staticRenderFns = [
         _c("th", [_vm._v("المتر المربع")]),
         _vm._v(" "),
         _c("th", [_vm._v("سعر القطعه الواحده")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("اجمالي الامتار")]),
         _vm._v(" "),
         _c("th", [_vm._v("الجمالي")]),
         _vm._v(" "),
@@ -38527,7 +38585,7 @@ var render = function() {
         _c("div", { staticClass: "panel panel-default" }, [
           _c("div", { staticClass: "panel-body" }, [
             _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-4" }, [
+              _c("div", { staticClass: "col-md-3" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", [_vm._v("الموردين")]),
                   _vm._v(" "),
@@ -38583,7 +38641,7 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-4" }, [
+              _c("div", { staticClass: "col-md-3" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", [_vm._v("المخزن")]),
                   _vm._v(" "),
@@ -38636,7 +38694,7 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-4" }, [
+              _c("div", { staticClass: "col-md-3" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", [_vm._v("رقم الاذن")]),
                   _vm._v(" "),
@@ -38644,6 +38702,34 @@ var render = function() {
                     staticClass: "form-control",
                     attrs: { disabled: "" },
                     domProps: { value: _vm.permission }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("التاريخ")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.date,
+                        expression: "date"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "date" },
+                    domProps: { value: _vm.date },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.date = $event.target.value
+                      }
+                    }
                   })
                 ])
               ])
@@ -38806,6 +38892,14 @@ var render = function() {
                           _vm._v(
                             _vm._s(
                               item.sizes_length * item.sizes_width * item.price
+                            )
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              item.sizes_length * item.sizes_width * item.number
                             )
                           )
                         ]),
@@ -39064,6 +39158,8 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("سعر القطعه الواحده")]),
         _vm._v(" "),
+        _c("th", [_vm._v("اجمالي الامتار")]),
+        _vm._v(" "),
         _c("th", [_vm._v("الجمالي")]),
         _vm._v(" "),
         _c("th", { attrs: { width: "9%" } })
@@ -39110,7 +39206,7 @@ var render = function() {
         _c("div", { staticClass: "panel panel-default" }, [
           _c("div", { staticClass: "panel-body" }, [
             _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-4" }, [
+              _c("div", { staticClass: "col-md-3" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", [_vm._v("العملاء")]),
                   _vm._v(" "),
@@ -39152,18 +39248,21 @@ var render = function() {
                             key: supplier.id,
                             domProps: { value: supplier.id }
                           },
-                          [_vm._v(_vm._s(supplier.name))]
+                          [
+                            _vm._v(
+                              _vm._s(supplier.name) +
+                                "\n                                    "
+                            )
+                          ]
                         )
                       })
                     ],
                     2
                   )
                 ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-4" }, [
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-2" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", [_vm._v("المخزن")]),
                   _vm._v(" "),
@@ -39196,21 +39295,81 @@ var render = function() {
                       }
                     },
                     [
-                      _c("option", { attrs: { value: "1" } }, [
-                        _vm._v("السيوف")
-                      ]),
+                      _c("option", { attrs: { value: "" } }),
                       _vm._v(" "),
-                      _c("option", { attrs: { value: "2" } }, [
-                        _vm._v("جمال عبد الناصر")
-                      ])
-                    ]
+                      _vm._l(_vm.stores, function(store) {
+                        return _c(
+                          "option",
+                          { key: store.id, domProps: { value: store.id } },
+                          [
+                            _vm._v(
+                              _vm._s(store.name) +
+                                "\n                                    "
+                            )
+                          ]
+                        )
+                      })
+                    ],
+                    2
                   )
                 ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-4" }, [
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-2" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("مندوب البيع")]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.sale_id,
+                          expression: "sale_id"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.sale_id = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "" } }),
+                      _vm._v(" "),
+                      _vm._l(_vm.salesMen, function(saleMan) {
+                        return _c(
+                          "option",
+                          { key: saleMan.id, domProps: { value: saleMan.id } },
+                          [
+                            _vm._v(
+                              "\n                                        " +
+                                _vm._s(saleMan.name) +
+                                "\n                                    "
+                            )
+                          ]
+                        )
+                      })
+                    ],
+                    2
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-2" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", [_vm._v("رقم الاذن")]),
                   _vm._v(" "),
@@ -39219,18 +39378,47 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.permission_number,
-                        expression: "permission_number"
+                        value: _vm.permission,
+                        expression: "permission"
                       }
                     ],
                     staticClass: "form-control",
-                    domProps: { value: _vm.permission_number },
+                    attrs: { disabled: "" },
+                    domProps: { value: _vm.permission },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.permission_number = $event.target.value
+                        _vm.permission = $event.target.value
+                      }
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("التاريخ")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.date,
+                        expression: "date"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "date" },
+                    domProps: { value: _vm.date },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.date = $event.target.value
                       }
                     }
                   })
@@ -39283,7 +39471,12 @@ var render = function() {
                         return _c(
                           "option",
                           { key: product.id, domProps: { value: product.id } },
-                          [_vm._v(_vm._s(product.full_name))]
+                          [
+                            _vm._v(
+                              _vm._s(product.full_name) +
+                                "\n                                    "
+                            )
+                          ]
                         )
                       })
                     ],
@@ -39382,6 +39575,26 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(item.price))]),
                         _vm._v(" "),
+                        _c("td", [
+                          _vm._v(_vm._s(item.sizes_length * item.sizes_width))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              item.sizes_length * item.sizes_width * item.price
+                            )
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              item.sizes_length * item.sizes_width * item.number
+                            )
+                          )
+                        ]),
+                        _vm._v(" "),
                         _c("td", { staticClass: "kt-font-danger kt-font-lg" }, [
                           _vm._v(_vm._s(item.cost))
                         ]),
@@ -39412,13 +39625,69 @@ var render = function() {
               "div",
               { staticClass: "row", staticStyle: { "text-align": "center" } },
               [
-                _c("div", { staticClass: "col-md-6" }, [
+                _c("div", { staticClass: "col-md-3" }, [
                   _c("b", [_vm._v("الاجمالي")]),
                   _vm._v(" "),
-                  _c("p", [_vm._v(_vm._s(_vm.outTotal))])
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.outTotal,
+                        expression: "outTotal"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      disabled: "",
+                      type: "text",
+                      placeholder: "اجمالي السعر "
+                    },
+                    domProps: { value: _vm.outTotal },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.outTotal = $event.target.value
+                      }
+                    }
+                  })
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-md-6" }, [
+                _c("div", { staticClass: "col-md-3" }, [
+                  _c("b", [_vm._v("اجمالي الامتار")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.meters,
+                        expression: "meters"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      disabled: "",
+                      type: "text",
+                      placeholder: "اجمالي السعر "
+                    },
+                    domProps: { value: _vm.meters },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.meters = $event.target.value
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-3" }, [
+                  _c("b", [_vm._v("ض . ق . م")]),
+                  _vm._v(" "),
                   _c("input", {
                     directives: [
                       {
@@ -39449,6 +39718,109 @@ var render = function() {
                         "%)"
                     )
                   ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-3" }, [
+                  _c("b", [_vm._v("اجمالي السعر بعد الضريبه")]),
+                  _vm._v(" "),
+                  _c(
+                    "b",
+                    { staticClass: "form-control", attrs: { disabled: "" } },
+                    [
+                      _vm._v(
+                        " " +
+                          _vm._s(
+                            _vm.outTotal + (_vm.outTotal * _vm.taxes) / 100
+                          )
+                      )
+                    ]
+                  )
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "row", staticStyle: { "text-align": "center" } },
+              [
+                _c("div", { staticClass: "col-md-4" }, [
+                  _c("b", [_vm._v("خصم نسبه")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.discount,
+                        expression: "discount"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "number", placeholder: "خصم بنسبه " },
+                    domProps: { value: _vm.discount },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.discount = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      _vm._s(
+                        (_vm.outTotal + (_vm.outTotal * _vm.taxes) / 100) *
+                          (_vm.discount / 100)
+                      ) + " "
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-4" }, [
+                  _c("b", [_vm._v("اجمالي السعر بعد خصم النسبه")]),
+                  _vm._v(" "),
+                  _c(
+                    "b",
+                    { staticClass: "form-control", attrs: { disabled: "" } },
+                    [
+                      _vm._v(
+                        _vm._s(
+                          _vm.outTotal +
+                            (_vm.outTotal * _vm.taxes) / 100 -
+                            (_vm.outTotal + (_vm.outTotal * _vm.taxes) / 100) *
+                              (_vm.discount / 100)
+                        )
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-4" }, [
+                  _c("b", [_vm._v("تعديل السعر")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.finalPrice,
+                        expression: "finalPrice"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text" },
+                    domProps: { value: _vm.finalPrice },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.finalPrice = $event.target.value
+                      }
+                    }
+                  })
                 ])
               ]
             )
@@ -39472,6 +39844,12 @@ var staticRenderFns = [
         _c("th", [_vm._v("العدد")]),
         _vm._v(" "),
         _c("th", [_vm._v("سعر المتر المربع")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("المتر المربع")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("سعر القطعه الواحده")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("اجمالي الامتار")]),
         _vm._v(" "),
         _c("th", [_vm._v("الجمالي")]),
         _vm._v(" "),

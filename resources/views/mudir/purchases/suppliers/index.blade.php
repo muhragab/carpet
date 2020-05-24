@@ -22,6 +22,7 @@
                                 <th width="10%">#</th>
                                 <th>اسم</th>
                                 <th>النوع</th>
+                                <th>الحاله</th>
                                 <th width="10%"></th>
                             </tr>
                         </thead>
@@ -31,6 +32,7 @@
                                 <td>{{ $supplier->id }}</td>
                                 <td>{{ $supplier->name }}</td>
                                 <td><a href="{{ route('supplier.index', $supplier->is_link) }}">{{ $supplier->is }}</a></td>
+                                <td>{{$supplier->status}}</td>
                                 <td>
                                     <div class="btn-group btn-group-sm">
 

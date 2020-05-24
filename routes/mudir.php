@@ -36,4 +36,5 @@ Route::resource('accounts_statement', 'AccountStatementController');
 
 Route::resource('activitys', 'ActivityController');
 Route::resource('accountCategories', 'AccountCategoryController');
+Route::resource('salesMen', 'SalesManController');
 Route::resource('subAccountCategories', 'SubAccountCategoryController');

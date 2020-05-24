@@ -4,6 +4,8 @@ namespace App\Models\Sales;
 
 use App\Models\Purchases\Supplier;
 
+use App\Models\SalesMan;
+use App\Store;
 use Illuminate\Database\Eloquent\Model;
 
 class Sale extends Model
@@ -15,15 +17,32 @@ class Sale extends Model
      */
     protected $fillable = [
         'supplier_id',
+        'sale_man',
         'inventorie_id',
         'permission_number',
+        'permission_number',
+        'discount',
+        'finalPrice',
         'price',
-        'taxes'
+        'allMeters',
+        'priceFinal',
+        'taxes',
+        'date'
     ];
 
     public function supplier()
     {
         return $this->hasOne(Supplier::class, 'id', 'supplier_id');
+    }
+
+    public function stores()
+    {
+        return $this->hasOne(Store::class, 'id', 'inventorie_id');
+    }
+
+    public function saleMan()
+    {
+        return $this->belongsTo(SalesMan::class, 'sale_man');
     }
 
     public function items()

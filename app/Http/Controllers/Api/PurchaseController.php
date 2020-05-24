@@ -31,9 +31,9 @@ class PurchaseController extends Controller
             'permission_number',
             'finalPrice',
             'discount',
-            'taxes'
+            'taxes',
+            'date'
         ]);
-
         $data['price'] = null;
         $final = array_merge($data, ['priceFinal' => $request->allPrice, 'allMeters' => $request->allMeters]);
         $purchase = Purchase::create($final);

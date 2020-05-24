@@ -18,8 +18,9 @@ class CreateBackPurchasesTable extends Migration
             $table->unsignedBigInteger('supplier_id')->index()->nullable();
             $table->unsignedBigInteger('inventorie_id')->index()->nullable();
             $table->integer('permission_number')->nullable();
-            $table->integer('discount')->nullable();
             $table->decimal('price', 8, 2)->nullable();
+            $table->integer('discount')->nullable();
+            $table->string('date');
             $table->string('allMeters');
             $table->decimal('priceFinal', 8, 2)->nullable();
             $table->decimal('finalPrice', 8, 2)->nullable();

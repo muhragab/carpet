@@ -21,7 +21,10 @@
                             <tr>
                                 <th width="10%">#</th>
                                 <th>اسم المورد</th>
-                                <th>رقم الاذن</th>
+                                <th>اسم  المخزن</th>
+                                <th>تاريخ الفاتوره </th>
+                                <th>اجمالي الفاتوره  </th>
+                                <th>رقم الاذن   </th>
                                 <th width="10%"></th>
                             </tr>
                         </thead>
@@ -30,6 +33,9 @@
                             <tr>
                                 <td>{{ $purchase->id }}</td>
                                 <td>{{ $purchase->supplier->name }}</td>
+                                <td>{{ $purchase->stores->name }}</td>
+                                <td>{{ $purchase->date }}</td>
+                                <td>{{ $purchase->finalPrice }}</td>
                                 <td>{{ (!empty($purchase->permission_number)) ? $purchase->permission_number : '-' }}</td>
                                 <td>
                                     <div class="btn-group btn-group-sm">
