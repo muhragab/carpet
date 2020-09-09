@@ -2,6 +2,27 @@
 
 @section('content')
     <div id="page-wrapper">
+
+        <div class="row">
+            <div class="links text-center">
+                @php
+                    $pre = $product->id - 1;
+                    $next = $product->id + 1;
+                @endphp
+                @if($next < $productCount )
+                    <a href="{{url('products/'.$next.'/edit')}}"> <<< التالي</a>
+                @else
+                    <span disabled>  <<< التالي</span>
+                @endif
+                <span>.. {{$product->id}} ..</span>
+                @if($pre > 0 )
+                    <a href="{{url('products/'.$pre.'/edit')}}"> السابق >>> </a>
+                @else
+                    <span disabled> السابق >>>  </span>
+                @endif
+
+            </div>
+        </div>
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">تحرير صنف</h1>
@@ -254,7 +275,7 @@
                                 </div>
                             </div>
                             <span class="form-text text-muted">اجمالي عدد الامتار المربعة <b
-                                    id="sizes_total"></b></span>
+                                        id="sizes_total"></b></span>
                         </div>
                     </div>
 

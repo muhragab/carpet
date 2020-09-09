@@ -24,6 +24,7 @@ Route::get('/supplier/all', 'Api\SupplierController@getAll');
 Route::get('/get-all-stores', 'Api\PurchaseController@stores');
 Route::get('/permission/number', 'Api\PurchaseController@permission_number');
 Route::get('sales/permission/number', 'Api\SaleController@permission_number');
+Route::get('back/sales/permission/number', 'Api\BackSaleController@permission_number');
 Route::get('/get-all-sales-man', 'Api\SaleController@salesMen');
 Route::post('/purchase/save', 'Api\PurchaseController@save');
 
@@ -31,3 +32,5 @@ Route::get('back/permission/number', 'Api\PurchaseBackController@permission_numb
 Route::post('back/purchase/save', 'Api\PurchaseBackController@save');
 
 Route::post('/sale/save', 'Api\SaleController@save');
+Route::post('back/sale/save', 'Api\BackSaleController@save');
+Route::get('/supplier/price', 'Api\SaleController@getPrice');

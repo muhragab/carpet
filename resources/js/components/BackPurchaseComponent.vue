@@ -10,8 +10,8 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>المخزن</label>
-                                    <select class="form-control" v-model="inventorie_id">
-                                        <option value=""></option>
+                                    <select class="form-control" v-model="inventorie_id" required>
+                                        <option></option>
                                         <option v-for="store in stores" :key="store.id" :value="store.id">{{store.name
                                             }}
                                         </option>
@@ -21,7 +21,7 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>الموردين</label>
-                                    <select class="form-control" v-model="supplier_id">
+                                    <select class="form-control" v-model="supplier_id" required>
                                         <option></option>
                                         <option v-for="supplier in suppliers" :key="supplier.id" :value="supplier.id">{{
                                             supplier.name }}
@@ -39,7 +39,7 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>التاريخ</label>
-                                    <input type="date" class="form-control" v-model="date" />
+                                    <input type="date" class="form-control" v-model="date" required/>
                                 </div>
                             </div>
                         </div>
@@ -89,10 +89,10 @@
                                 <tr>
                                     <th>المنتج</th>
                                     <th>العدد</th>
-                                    <th>سعر المتر المربع</th>
                                     <th>المتر المربع</th>
                                     <th>سعر القطعه الواحده</th>
                                     <th>اجمالي الامتار</th>
+                                    <th>سعر م المربع</th>
                                     <th>الجمالي</th>
                                     <th width="9%"></th>
                                 </tr>
@@ -101,10 +101,10 @@
                                 <tr v-for="item in items" :key="item.product">
                                     <td>{{ item.product }}</td>
                                     <td>{{ item.number }}</td>
-                                    <td>{{ item.price }}</td>
                                     <td>{{ item.sizes_length * item.sizes_width}}</td>
                                     <td>{{ item.sizes_length * item.sizes_width * item.price}}</td>
                                     <td>{{ item.sizes_length * item.sizes_width * item.number}}</td>
+                                    <td>{{ item.price }}</td>
                                     <td class="kt-font-danger kt-font-lg">{{ item.cost }}</td>
                                     <td>
                                         <a class="btn btn-danger btn-xs" @click="itemRemove(item)">حذف</a>

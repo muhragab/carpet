@@ -22,8 +22,10 @@
         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> ملف الخزينه<span class="fa arrow"></span></a>
         <ul class="nav nav-second-level">
             <li>
-                <a class="" href="{{ route('accountCategories.index') }}"><i class="fa fa-dashboard fa-fw"></i> تصنيف رئيسي</a>
-                <a class="" href="{{ route('subAccountCategories.index') }}"><i class="fa fa-dashboard fa-fw"></i> تصنيف فرعي</a>
+                <a class="" href="{{ route('accountCategories.index') }}"><i class="fa fa-dashboard fa-fw"></i> تصنيف
+                    رئيسي</a>
+                <a class="" href="{{ route('subAccountCategories.index') }}"><i class="fa fa-dashboard fa-fw"></i> تصنيف
+                    فرعي</a>
                 <a class="" href="{{ route('accounts.index') }}"><i class="fa fa-dashboard fa-fw"></i> الخزن</a>
             </li>
         </ul>
@@ -51,10 +53,10 @@
                 <a href="{{ route('supplier.index', ['is_supplier' => 1]) }}">الموردين</a>
             </li>
             <li>
-                <a href="{{ route('purchase.index') }}">المشتريات</a>
+                <a href="{{ route('purchase.index') }}">فاتوره المشتريات</a>
             </li>
             <li>
-                <a href="{{ route('back.index') }}">المرتجعات</a>
+                <a href="{{ route('back.index') }}">فاتوره مردود المشتريات</a>
             </li>
         </ul>
         <!-- /.nav-second-level -->
@@ -65,11 +67,18 @@
             <li>
                 <a href="{{ route('supplier.index', ['is_client' => 1]) }}">العملاء</a>
             </li>
+
             <li>
-                <a href="{{ route('sales.index') }}">المبيعات</a>
+                <a href="{{ route('supplierPrices.index', ['is_client' => 1]) }}">تسعيره العملاء</a>
+            </li>
+            <li>
+                <a href="{{ route('sales.index') }}">فاتوره المبيعات</a>
             </li>
             <li>
                 <a class="" href="{{ route('salesMen.index') }}">مندوب المبيعات </a>
+            </li>
+            <li>
+                <a class="" href="{{ route('BackSales.index') }}"> فاتوره مردود المبيعات</a>
             </li>
         </ul>
         <!-- /.nav-second-level -->
@@ -79,5 +88,20 @@
     </li>
     <li>
         <a class="" href="{{ route('activitys.index') }}"><i class="fa fa-users fa-fw"></i> النشاط</a>
+    </li>
+
+    <li>
+        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> التقرير<span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+            <li>
+                <a href="{{route('supplier.report', ['is_client' => 1])}}">تقرير العملاء</a>
+            </li>
+
+            <li>
+                <a href="{{route('supplier.report', ['is_client' => 2]) }}"> تقرير الموردين</a>
+            </li>
+
+        </ul>
+        <!-- /.nav-second-level -->
     </li>
 </ul>

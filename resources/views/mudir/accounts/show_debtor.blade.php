@@ -38,8 +38,7 @@
                                     @foreach($account->statements->where('statement_type', $type) as $statement)
                                         <tr>
                                             <td>{{ $statement->statement }}</td>
-                                            <td>{{ $statement->cat->title }}</td>
-                                            زةعبف
+                                           <td>@if($statement->type == 1) {{ $statement->cat['title'] }} @else {{ $statement->supplier['name'] }} @endif</td>
                                             @if($type == 'creditor')
                                                 <td>@if($statement->statement_type == 'creditor') {{ $statement->amount }} @endif</td>
                                             @else

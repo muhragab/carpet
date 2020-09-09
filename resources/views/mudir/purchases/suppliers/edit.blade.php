@@ -17,6 +17,18 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
+                                <label>مندوب المبيعات</label>
+                                <select class="form-control" name="salesMan">
+                                    <option value=""> من فضلك قم باختيار مندوب المبيعات</option>
+                                    @foreach($salesMen as $salesMan)
+                                        <option value="{{$salesMan->id}}"
+                                                @if($supplier->salesMan == $salesMan->id) selected @endif> {{$salesMan->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
                                 <label>الاسم</label>
                                 <input class="form-control" name="name" value="{{ $supplier->name }}">
                             </div>

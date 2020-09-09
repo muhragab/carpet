@@ -65,7 +65,8 @@ class PurchaseController extends Controller
      */
     public function edit(Purchase $purchase)
     {
-        //
+        $purchase->update(['status' => 2]);
+        return redirect()->back();
     }
 
     /**
@@ -77,7 +78,13 @@ class PurchaseController extends Controller
      */
     public function update(Request $request, Purchase $purchase)
     {
-        //
+
+    }
+
+    public function delete($purchase)
+    {
+        Purchase::where('id', $purchase)->delete();
+        return redirect()->back();
     }
 
     /**
@@ -88,6 +95,6 @@ class PurchaseController extends Controller
      */
     public function destroy(Purchase $purchase)
     {
-        //
+
     }
 }

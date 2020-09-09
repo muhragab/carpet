@@ -20,6 +20,7 @@ class CreateAccountStatementsTable extends Migration
             $table->string('category');
             $table->date('date');
             $table->enum('statement_type', ['creditor', 'debtor']);
+            $table->enum('type', [1, 2]);
             $table->decimal('amount', 8, 2)->nullable();
             $table->timestamps();
             $table->foreign('account_id')

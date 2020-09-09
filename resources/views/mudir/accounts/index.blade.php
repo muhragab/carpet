@@ -39,7 +39,7 @@
                                             <div class="btn-group btn-group-xs">
                                                 <a href="{{ route('accounts.show', [$account]) }}" class="btn btn-info">
                                                     <span class="fa fa-fw fa-eye"></span>
-                                                    عرض
+                                                    اضافه صرف او قبض
                                                 </a>
                                                 <a href="{{ route('accounts_statement.show', [$account , 'account' => $account,'type' => 'creditor']) }}"
                                                    class="btn btn-info">

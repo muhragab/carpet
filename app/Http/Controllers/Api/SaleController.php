@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Products\Product;
+use App\Models\Products\ProductTypes;
 use App\Models\SalesMan;
+use App\Models\SupplierPrice;
 use Illuminate\Http\Request;
 
 use App\Models\Purchases\SupplierAccount;
@@ -23,20 +26,33 @@ class SaleController extends Controller
 
     public function save(Request $request)
     {
+        $request->validate([
+            'supplier_id' => 'required',
+            'sale_man' => 'required',
+            'inventorie_id' => 'required',
+            'date' => 'required',
+        ]);
         $data = $request->only([
             'supplier_id',
             'sale_man',
             'inventorie_id',
             'permission_number',
             'finalPrice',
+            'priceFinal',
             'discount',
             'taxes',
             'date'
         ]);
+        $priceFinal = ($request->allPrice + ($request->allPrice * $request->taxes / 100)) -
+            (($request->allPrice + ($request->allPrice * $request->taxes / 100)) * ($request->discount / 100));
 
         $data['price'] = null;
+        if ($request->finalPrice == null || $request->finalPrice = '')
+            $data['finalPrice'] = $priceFinal;
 
-        $sale = Sale::create($data);
+        $final = array_merge($data, ['priceFinal' => $priceFinal, 'allMeters' => $request->allMeters]);
+
+        $sale = Sale::create($final);
 
         $items = $request->items;
 
@@ -60,5 +76,14 @@ class SaleController extends Controller
         ]);
 
         return 'done';
+    }
+
+    public function getPrice(Request $request)
+    {
+        $getProduct = Product::where('id', $request->product_id)->first();
+        $type = ProductTypes::where('id', $getProduct->type_id)->first();
+        $price = SupplierPrice::where('supplier_id', $request->supplier_id)->where('product_id', $type->id)->first();
+
+        return $price->price;
     }
 }

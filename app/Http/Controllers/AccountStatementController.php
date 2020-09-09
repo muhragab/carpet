@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Account;
 use App\AccountStatement;
+use App\Http\Requests\AccountStatementRequest;
 use Illuminate\Http\Request;
 
 class AccountStatementController extends Controller
@@ -34,11 +35,9 @@ class AccountStatementController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AccountStatementRequest $request)
     {
-
         $data = $request->all();
-
         AccountStatement::create($data);
         return back()->with('success', 'تم اضافة البيان');
     }

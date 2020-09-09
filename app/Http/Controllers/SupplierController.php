@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Purchases\Supplier;
+use App\Models\SalesMan;
 use Illuminate\Http\Request;
 
 class SupplierController extends Controller
@@ -31,7 +32,8 @@ class SupplierController extends Controller
      */
     public function create()
     {
-        return view('mudir.purchases.suppliers.create');
+        $salesMen =SalesMan::get();
+        return view('mudir.purchases.suppliers.create',compact(['salesMen']));
     }
 
     /**
@@ -60,6 +62,7 @@ class SupplierController extends Controller
             'is_supplier',
             'is_client',
             'status',
+            'salesMan',
         ]);
 
         Supplier::create($data);
@@ -92,7 +95,9 @@ class SupplierController extends Controller
      */
     public function edit(Supplier $supplier)
     {
-        return view('mudir.purchases.suppliers.edit')
+        $salesMen =SalesMan::get();
+
+        return view('mudir.purchases.suppliers.edit',compact(['salesMen']))
             ->withSupplier($supplier);
     }
 
@@ -121,7 +126,7 @@ class SupplierController extends Controller
             'fax_number',
             'email',
             'status',
-
+            'salesMan',
         ]);
         $data['is_supplier'] = ($request->has('is_supplier')) ? 1 : 0;
         $data['is_client'] = ($request->has('is_client')) ? 1 : 0;

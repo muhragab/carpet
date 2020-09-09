@@ -12,6 +12,11 @@
 */
 
 
+Route::get('/migrate', function () {
+    Artisan::call('migrate');
+    return 'done';
+});
+
 Route::get('/viewclear', function () {
     Artisan::call('view:clear');
     return 'done';
@@ -25,5 +30,3 @@ Route::get('/configclear', function () {
 });
 Route::get('logout', 'Auth\LoginController@logout');
 Auth::routes();
-
-

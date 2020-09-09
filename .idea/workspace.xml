@@ -2,31 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2a0af49-ccfb-4f55-a5f3-eca6b861636d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_05_20_225339_add_status_to_suppliers_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AccountStatement.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AccountStatement.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AccountStatementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AccountStatementController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/PurchaseBackController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/PurchaseBackController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/PurchaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/PurchaseController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/SaleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/SaleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PurchaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PurchaseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SalesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SalesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SupplierController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SupplierController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Purchases/BackPurchase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Purchases/BackPurchase.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Purchases/Purchase.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Purchases/Purchase.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Purchases/Supplier.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Purchases/Supplier.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Sales/Sale.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Sales/Sale.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_19_075949_create_purchases_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_19_075949_create_purchases_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_05_153722_create_sales_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_05_153722_create_sales_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_12_103008_create_back_purchases_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_04_12_103008_create_back_purchases_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_19_122325_create_account_statements_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_19_122325_create_account_statements_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/BackPurchaseComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/BackPurchaseComponent.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/PurchaseComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/PurchaseComponent.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/SalesComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/SalesComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/mudir/accounts/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mudir/accounts/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/mudir/accounts/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mudir/accounts/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/mudir/accounts/show_debtor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mudir/accounts/show_debtor.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/mudir/includes/sidemenu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mudir/includes/sidemenu.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/mudir/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mudir/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/mudir/products/products/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mudir/products/products/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/mudir/products/products/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mudir/products/products/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/mudir/purchases/back_purchase/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mudir/purchases/back_purchase/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/mudir/purchases/back_purchase/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mudir/purchases/back_purchase/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/mudir/purchases/purchase/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mudir/purchases/purchase/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/mudir/purchases/purchase/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mudir/purchases/purchase/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/mudir/purchases/purchase/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mudir/purchases/purchase/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/mudir/purchases/suppliers/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mudir/purchases/suppliers/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/mudir/purchases/suppliers/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mudir/purchases/suppliers/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/mudir/purchases/suppliers/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mudir/purchases/suppliers/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/mudir/sales/sales/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mudir/sales/sales/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/mudir/sales/sales/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mudir/sales/sales/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/mudir.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/mudir.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
@@ -148,12 +159,36 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/mudir/sales/sales/index.blade.php">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/mudir.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
-              <caret line="39" column="56" selection-start-line="39" selection-start-column="56" selection-end-line="39" selection-end-column="56" />
+            <state relative-caret-position="373">
+              <caret line="49" column="59" lean-forward="true" selection-start-line="49" selection-start-column="59" selection-end-line="49" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/mudir/supplier_report/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="318">
+              <caret line="83" column="108" selection-start-line="83" selection-start-column="108" selection-end-line="83" selection-end-column="108" />
+              <folding>
+                <element signature="e#4226#4298#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SupplierReportsController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="433">
+              <caret line="78" column="48" selection-start-line="78" selection-start-column="48" selection-end-line="78" selection-end-column="48" />
+              <folding>
+                <element signature="e#40#65#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -162,47 +197,60 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>.purchase</find>
-      <find>inventorie_id</find>
-      <find>pr</find>
-      <find>pri</find>
-      <find>error</find>
-      <find>items</find>
-      <find>text</find>
-      <find>col-md-4</find>
-      <find>المص</find>
-      <find>العدد</find>
-      <find>add</find>
-      <find>transformation</find>
-      <find>calcTotal</find>
-      <find>time</find>
-      <find>fina</find>
-      <find>number</find>
-      <find>date</find>
-      <find>accoun</find>
-      <find>example1</find>
-      <find>md-4</find>
-      <find>store</find>
-      <find>outTotal</find>
-      <find>saleMan</find>
-      <find>salesMan</find>
-      <find>salesM</find>
-      <find>salesMen</find>
       <find>stores</find>
       <find>اجمالي</find>
       <find>permission</find>
+      <find>laravel</find>
+      <find>مندوب</find>
+      <find>sales</find>
+      <find>اضا</find>
+      <find>المردو</find>
+      <find>فواتير المرتجعه</find>
+      <find>المردودات</find>
+      <find>allPrice</find>
+      <find>priceWithDiscount</find>
+      <find>اجمالي الامتار</find>
       <find>meters</find>
+      <find>الاجمالي</find>
+      <find>outTotal</find>
+      <find>belon</find>
+      <find>sale</find>
+      <find>md-3</find>
+      <find>اجمالي السعر بعد خصم النسبه</find>
+      <find>priceFinal</find>
+      <find>finalPrice</find>
+      <find>url</find>
+      <find>john</find>
+      <find>td</find>
+      <find>example1</find>
+      <find>$supplierData</find>
+      <find>$purchasesBack</find>
+      <find>$purchase</find>
+      <find>$purchaseBack</find>
     </findStrings>
     <replaceStrings>
       <replace>.back_purchase</replace>
       <replace>col-md-3</replace>
       <replace>md-3</replace>
+      <replace>فاتوره مردود المشتريات</replace>
+      <replace>فاتوره مردود المبيعات</replace>
+      <replace />
+      <replace>md-4</replace>
+      <replace>th</replace>
+      <replace>$purchasesBack</replace>
+      <replace>$purchaseBack</replace>
+      <replace>$purchase</replace>
+      <replace>$sale</replace>
+      <replace>$saleBack</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/app</dir>
-      <dir>$PROJECT_DIR$</dir>
-      <dir>$PROJECT_DIR$/app/Models</dir>
+      <dir>$PROJECT_DIR$/resources/views</dir>
       <dir>$PROJECT_DIR$/resources</dir>
+      <dir>$PROJECT_DIR$/app/Models</dir>
+      <dir>$PROJECT_DIR$</dir>
+      <dir>$PROJECT_DIR$/storage/framework</dir>
+      <dir>$PROJECT_DIR$/resources/views/mudir</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -211,57 +259,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Models/SubAccountCategory.php" />
-        <option value="$PROJECT_DIR$/resources/views/mudir/accounts/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/AccountController.php" />
-        <option value="$PROJECT_DIR$/resources/views/mudir/accounts/show.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/StoresProductController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/StoreController.php" />
-        <option value="$PROJECT_DIR$/resources/views/mudir/stores/show_in_store.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/mudir/stores/show_from_store.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/mudir/stores/add_to_store.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/mudir/stores/show.blade.php" />
-        <option value="$PROJECT_DIR$/app/Models/Purchases/PurchaseItem.php" />
-        <option value="$PROJECT_DIR$/app/Models/Purchases/BackPurchaseItem.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_10_20_161559_create_purchase_items_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_04_20_161559_create_back_purchase_items_table.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/SupplierController.php" />
+        <option value="$PROJECT_DIR$/resources/views/mudir/purchases/suppliers/edit.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" />
+        <option value="$PROJECT_DIR$/resources/views/mudir/purchases/purchase/create.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/SalesBackController.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/BackSalesComponent.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/BackPurchaseComponent.vue" />
+        <option value="$PROJECT_DIR$/resources/views/mudir/sales/sales/show.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/mudir/purchases/back_purchase/show.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/mudir/purchases/purchase/show.blade.php" />
-        <option value="$PROJECT_DIR$/../php.ini" />
-        <option value="$PROJECT_DIR$/resources/js/components/BackPurchaseComponent.vue" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/PurchaseBackController.php" />
-        <option value="$PROJECT_DIR$/app/Models/Purchases/BackPurchase.php" />
-        <option value="$PROJECT_DIR$/resources/views/mudir/purchases/purchase/index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/mudir/purchases/back_purchase/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/Models/Purchases/Supplier.php" />
-        <option value="$PROJECT_DIR$/resources/views/mudir/purchases/suppliers/create.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/mudir/purchases/suppliers/index.blade.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_05_20_225339_add_status_to_suppliers_table.php" />
-        <option value="$PROJECT_DIR$/resources/views/mudir/purchases/suppliers/edit.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/SupplierController.php" />
-        <option value="$PROJECT_DIR$/resources/views/mudir/sales_man/edit.blade.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/routes/mudir.php" />
-        <option value="$PROJECT_DIR$/resources/views/mudir/sales_men/table.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/mudir/includes/sidemenu.blade.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_05_23_221938_create_sales_men_table.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/SalesManController.php" />
-        <option value="$PROJECT_DIR$/resources/views/mudir/sales_men/edit.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/mudir/sales_men/show.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/mudir/sales_men/create.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/mudir/layout.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/mudir/sales_men/index.blade.php" />
-        <option value="$PROJECT_DIR$/routes/api.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/PurchaseController.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/PurchaseComponent.vue" />
-        <option value="$PROJECT_DIR$/resources/js/components/SalesComponent.vue" />
-        <option value="$PROJECT_DIR$/app/Models/Purchases/Purchase.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/SaleController.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_12_05_153722_create_sales_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_10_19_075949_create_purchases_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_04_12_103008_create_back_purchases_table.php" />
-        <option value="$PROJECT_DIR$/app/Models/Sales/Sale.php" />
+        <option value="$PROJECT_DIR$/resources/views/mudir/sales/back_sales/show.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/mudir/sales/sales/index.blade.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_07_04_113800_create_supplier_prices_table.php" />
+        <option value="$PROJECT_DIR$/resources/views/mudir/supplier_prices/show.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/mudir/supplier_prices/table.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/mudir/supplier_prices/edit.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/SalesController.php" />
+        <option value="$PROJECT_DIR$/resources/views/mudir/supplier_prices/create.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/SupplierPriceController.php" />
+        <option value="$PROJECT_DIR$/resources/views/mudir/supplier_prices/fields.blade.php" />
+        <option value="$PROJECT_DIR$/app/Models/SupplierPrice.php" />
+        <option value="$PROJECT_DIR$/resources/views/mudir/supplier_prices/index.blade.php" />
+        <option value="$PROJECT_DIR$/routes/api.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/SalesComponent.vue" />
+        <option value="$PROJECT_DIR$/resources/views/mudir/accounts/index.blade.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_12_19_122325_create_account_statements_table.php" />
+        <option value="$PROJECT_DIR$/app/Http/Requests/AccountStatementRequest.php" />
+        <option value="$PROJECT_DIR$/resources/views/mudir/accounts/show_debtor.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/mudir/accounts/show.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/AccountStatementController.php" />
+        <option value="$PROJECT_DIR$/resources/views/mudir/includes/sidemenu.blade.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/PurchaseComponent.vue" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/PurchaseController.php" />
+        <option value="$PROJECT_DIR$/storage/framework/views/e27db0e3460f7dcff0ae5eca1f94a530a69b3a78.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/PurchaseBackController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/BackSaleController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/SaleController.php" />
+        <option value="$PROJECT_DIR$/app/AccountStatement.php" />
+        <option value="$PROJECT_DIR$/resources/views/mudir/layout.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/mudir/supplier_report/creditors.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/mudir/supplier_report/details.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/mudir/supplier_report/debtor.blade.php" />
+        <option value="$PROJECT_DIR$/app/Models/Purchases/BackPurchase.php" />
+        <option value="$PROJECT_DIR$/resources/views/mudir/supplier_report/purchases_back.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/mudir/supplier_report/purchases.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/mudir/supplier_report/sales.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/mudir/supplier_report/sales_back.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/SupplierReportsController.php" />
+        <option value="$PROJECT_DIR$/routes/mudir.php" />
+        <option value="$PROJECT_DIR$/resources/views/mudir/supplier_report/index.blade.php" />
       </list>
     </option>
   </component>
@@ -362,10 +410,10 @@
       <path value="$PROJECT_DIR$/vendor/infyomlabs/adminlte-templates" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="813" />
+    <option name="height" value="816" />
   </component>
   <component name="ProjectId" id="1XzQB9p1HuNseRTx3WpdW63D4WU" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -374,7 +422,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -391,21 +438,7 @@
               <item name="carpets" type="b2602c69:ProjectViewProjectNode" />
               <item name="carpets" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="carpets" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carpets" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Models" type="462c0819:PsiDirectoryNode" />
-              <item name="Purchases" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="carpets" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carpets" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Models" type="462c0819:PsiDirectoryNode" />
-              <item name="Sales" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="carpets" type="b2602c69:ProjectViewProjectNode" />
@@ -431,43 +464,29 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="mudir" type="462c0819:PsiDirectoryNode" />
-              <item name="purchases" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="carpets" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carpets" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="mudir" type="462c0819:PsiDirectoryNode" />
-              <item name="purchases" type="462c0819:PsiDirectoryNode" />
-              <item name="purchase" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="carpets" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carpets" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="mudir" type="462c0819:PsiDirectoryNode" />
-              <item name="sales" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="carpets" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carpets" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="mudir" type="462c0819:PsiDirectoryNode" />
-              <item name="sales" type="462c0819:PsiDirectoryNode" />
-              <item name="sales" type="462c0819:PsiDirectoryNode" />
+              <item name="supplier_report" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="carpets" type="b2602c69:ProjectViewProjectNode" />
               <item name="carpets" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="carpets" type="b2602c69:ProjectViewProjectNode" />
+              <item name="carpets" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="carpets" type="b2602c69:ProjectViewProjectNode" />
+              <item name="carpets" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+              <item name="framework" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -486,20 +505,21 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.file-colors" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/mudir/supplier_report" />
+      <recent name="$PROJECT_DIR$/resources/views/mudir" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/app/Http/Controllers/Api" />
+      <recent name="$PROJECT_DIR$/app/Models/Sales" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/mudir" />
       <recent name="$PROJECT_DIR$/app/Models/Purchases" />
       <recent name="$PROJECT_DIR$/public/css" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/Http/Controllers" />
-      <recent name="$PROJECT_DIR$/resources/views/mudir" />
-      <recent name="$PROJECT_DIR$/database/migrations" />
-      <recent name="$PROJECT_DIR$/app/Models/Purchases" />
-      <recent name="$PROJECT_DIR$/app/Http/Controllers/Api" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -593,18 +613,41 @@
       <workItem from="1589758632931" duration="333000" />
       <workItem from="1589844258181" duration="1345000" />
       <workItem from="1590013560904" duration="4788000" />
-      <workItem from="1590271885757" duration="5949000" />
+      <workItem from="1590271885757" duration="6201000" />
+      <workItem from="1591043370788" duration="3106000" />
+      <workItem from="1591110799146" duration="4456000" />
+      <workItem from="1591139635785" duration="473000" />
+      <workItem from="1591140224059" duration="416000" />
+      <workItem from="1591140965981" duration="1680000" />
+      <workItem from="1591217307766" duration="2471000" />
+      <workItem from="1591978467036" duration="7200000" />
+      <workItem from="1592568281718" duration="3237000" />
+      <workItem from="1593439812978" duration="107000" />
+      <workItem from="1593449342274" duration="89000" />
+      <workItem from="1593862164357" duration="5697000" />
+      <workItem from="1594234019330" duration="38000" />
+      <workItem from="1594256906724" duration="599000" />
+      <workItem from="1594279881679" duration="617000" />
+      <workItem from="1595865291299" duration="201000" />
+      <workItem from="1598707568936" duration="2040000" />
+      <workItem from="1598733838457" duration="4375000" />
+      <workItem from="1598796065830" duration="2804000" />
+      <workItem from="1598812205361" duration="6137000" />
+      <workItem from="1598967163796" duration="1454000" />
+      <workItem from="1598985446967" duration="312000" />
+      <workItem from="1599032029651" duration="1377000" />
+      <workItem from="1599596549032" duration="2501000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85500000" />
+    <option name="totallyTimeSpent" value="137139000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="821" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="816" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23319027" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.40271816" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -615,11 +658,11 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Docker" order="7" weight="0.32952926" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3298193" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32900432" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.4036827" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.39914772" />
       <window_info anchor="bottom" id="TypeScript" order="12" weight="0.32756132" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -627,7 +670,7 @@
       <window_info anchor="right" id="Database" order="3" weight="0.3297568" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23319027" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3855508" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -638,11 +681,11 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Docker" order="7" weight="0.32952926" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3298193" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32900432" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.4036827" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.39914772" />
       <window_info anchor="bottom" id="TypeScript" order="12" weight="0.32756132" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -717,356 +760,365 @@
     <state x="385" y="160" width="670" height="676" key="search.everywhere.popup/0.23.1440.813@0.23.1440.813" timestamp="1582046712581" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Store.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SalesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        <state relative-caret-position="586">
+          <caret line="65" column="36" lean-forward="true" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Purchases/BackPurchase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="35" column="55" lean-forward="true" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mudir/purchases/back_purchase/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Purchases/SupplierAccount.php">
+    <entry file="file://$PROJECT_DIR$/app/Models/Products/ProductTypes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
           <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_10_19_074308_create_suppliers_table.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/mudir/supplier_prices/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+        <state relative-caret-position="402">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Purchases/Supplier.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/mudir/supplier_prices/fields.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="16" column="23" lean-forward="true" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+        <state relative-caret-position="228">
+          <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mudir/purchases/purchase/edit.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/mudir/supplier_prices/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="17" column="42" lean-forward="true" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mudir/purchases/suppliers/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="34" column="55" selection-start-line="34" selection-start-column="55" selection-end-line="34" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mudir/purchases/suppliers/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="84" column="23" selection-start-line="84" selection-start-column="23" selection-end-line="92" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SupplierController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="611">
-          <caret line="123" lean-forward="true" selection-start-line="123" selection-end-line="123" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mudir/purchases/suppliers/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="562">
-          <caret line="91" column="72" selection-start-line="91" selection-start-column="72" selection-end-line="91" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_05_20_225339_add_status_to_suppliers_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="17" column="11" lean-forward="true" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mudir/sales_man/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mudir/sales_men/show_fields.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mudir/account_categories/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="601">
-          <caret line="25" lean-forward="true" selection-start-line="19" selection-start-column="20" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/mudir.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mudir/account_categories/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="24" column="11" lean-forward="true" selection-start-line="19" selection-start-column="19" selection-end-line="24" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mudir/sales_men/fields.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mudir/account_categories/fields.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mudir/sales_men/table.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="1" column="3" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mudir/account_categories/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="601">
-          <caret line="22" lean-forward="true" selection-start-line="16" selection-start-column="20" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mudir/includes/sidemenu.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="69" column="17" lean-forward="true" selection-start-line="69" selection-start-column="17" selection-end-line="69" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SalesManController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1081">
-          <caret line="102" column="27" selection-start-line="102" selection-start-column="27" selection-end-line="102" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AccountCategoryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="34" column="27" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mudir/sales_men/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="8" column="17" lean-forward="true" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mudir/sales_men/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mudir/sales_men/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="14" column="69" selection-start-line="14" selection-start-column="69" selection-end-line="14" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mudir/account_categories/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="46" column="65" lean-forward="true" selection-start-line="46" selection-start-column="65" selection-end-line="46" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mudir/layout.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="123" column="7" selection-start-line="123" selection-start-column="7" selection-end-line="123" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mudir/sales_men/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="30" column="50" lean-forward="true" selection-start-line="30" selection-start-column="50" selection-end-line="30" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="37507" column="8" selection-start-line="37507" selection-start-column="8" selection-end-line="37507" selection-end-column="8" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/SalesMan.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PurchaseController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5">
-          <caret line="7" column="32" selection-start-line="4" selection-start-column="4" selection-end-line="7" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="26" column="54" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/PurchaseComponent.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="237" selection-start-line="234" selection-end-line="237" />
-          <folding>
-            <element signature="n#style#0;n#div#2;n#div#2;n#div#0;n#div#0;n#form#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#div#2;n#div#2;n#div#0;n#div#0;n#form#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#style#0;n#div#3;n#div#2;n#div#0;n#div#0;n#form#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#div#3;n#div#2;n#div#0;n#div#0;n#form#0;n#div#0;n#template#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mudir/purchases/purchase/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_05_23_221938_create_sales_men_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="15" column="33" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_12_103008_create_back_purchases_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_10_19_075949_create_purchases_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_10_20_161559_create_purchase_items_table.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/SaleController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_20_161559_create_back_purchase_items_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-160" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/PurchaseController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="34" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/SalesComponent.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="199" column="6" selection-start-line="199" selection-start-column="6" selection-end-line="199" selection-end-column="6" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#template#0;n#!!top" />
-            <element signature="n#style#0;n#div#2;n#div#2;n#div#0;n#div#0;n#form#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#2;n#div#0;n#div#0;n#form#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#div#3;n#div#2;n#div#0;n#div#0;n#form#0;n#div#0;n#template#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_12_05_153722_create_sales_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="17" column="37" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mudir/purchases/purchase/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="37" column="60" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Purchases/Purchase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="32" selection-start-line="32" selection-end-line="35" selection-end-column="5" />
-          <folding>
-            <element signature="e#40#54#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="464">
+          <caret line="16" column="60" lean-forward="true" selection-start-line="16" selection-start-column="60" selection-end-line="16" selection-end-column="60" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Sales/Sale.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+        <state relative-caret-position="232">
+          <caret line="8" column="20" selection-start-line="8" selection-end-line="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mudir/sales/sales/index.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Repositories/SupplierPriceRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="39" column="56" selection-start-line="39" selection-start-column="56" selection-end-line="39" selection-end-column="56" />
+        <state relative-caret-position="391">
+          <caret line="39" column="23" lean-forward="true" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SupplierPriceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/mudir/supplier_prices/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-72">
+          <caret line="24" column="35" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
+          <folding>
+            <element signature="e#886#1156#0#HTML" />
+            <element signature="e#0#3012#0#Blade" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Products/Product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="16" column="16" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/SupplierPrice.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="30" column="19" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="19" />
+          <folding>
+            <element signature="e#30#67#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/SalesComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="43" column="56" lean-forward="true" selection-start-line="43" selection-start-column="56" selection-end-line="43" selection-end-column="56" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#div#2;n#div#0;n#div#0;n#form#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#2;n#div#0;n#div#0;n#form#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="21" column="18" lean-forward="true" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_ide_helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="20" column="18" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/mudir/accounts/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="47" column="52" lean-forward="true" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/typescript/lib/lib.dom.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="4857" column="4" selection-start-line="4857" selection-start-column="4" selection-end-line="4857" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_12_19_122325_create_account_statements_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="18" column="37" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/mudir/accounts/show_debtor.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="44" column="98" selection-start-line="44" selection-start-column="98" selection-end-line="44" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/mudir/accounts/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="63" column="84" selection-start-line="63" selection-start-column="84" selection-end-line="63" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AccountController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="54" column="37" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/mudir/supplier_report/add_to_store.blade.php" />
+    <entry file="file://$PROJECT_DIR$/resources/views/mudir/supplier_report/edit.blade.php" />
+    <entry file="file://$PROJECT_DIR$/app/Models/Purchases/Supplier.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="20" column="20" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Purchases/Purchase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/PurchaseComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="144" column="91" lean-forward="true" selection-start-line="144" selection-start-column="91" selection-end-line="145" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/storage/framework/views/e27db0e3460f7dcff0ae5eca1f94a530a69b3a78.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/SaleController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="54" column="35" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/BackSaleController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="477">
+          <caret line="46" column="39" selection-start-line="46" selection-start-column="39" selection-end-line="46" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="34" column="30" lean-forward="true" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/PurchaseBackController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="51" column="8" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/PurchaseController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="49" column="8" lean-forward="true" selection-start-line="41" selection-start-column="5" selection-end-line="49" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/mudir/includes/sidemenu.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="97" column="17" selection-start-line="97" selection-start-column="17" selection-end-line="97" selection-end-column="17" />
+          <folding>
+            <element signature="n#li#6;n#ul#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/AccountStatementRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AccountStatementController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="40" column="18" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/mudir/layout.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="134" column="7" selection-start-line="134" selection-start-column="7" selection-end-line="134" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/mudir/supplier_report/details.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/mudir/supplier_report/creditors.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="53">
+          <caret line="13" column="52" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="596">
+          <caret line="85" selection-start-line="85" selection-end-line="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/mudir/supplier_report/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1288" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/mudir/supplier_report/debtor.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="29" column="45" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Store.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/mudir/supplier_report/purchases_back.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="20" column="27" lean-forward="true" selection-start-line="20" selection-start-column="27" selection-end-line="45" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/mudir/supplier_report/purchases.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="38" column="36" lean-forward="true" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Purchases/BackPurchase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-23">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AccountStatement.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-470">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+          <folding>
+            <element signature="e#23#57#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/mudir/supplier_report/sales.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="42" column="48" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/mudir/supplier_report/sales_back.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="39" column="32" lean-forward="true" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SupplierReportsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="78" column="48" selection-start-line="78" selection-start-column="48" selection-end-line="78" selection-end-column="48" />
+          <folding>
+            <element signature="e#40#65#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/mudir.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="49" column="59" lean-forward="true" selection-start-line="49" selection-start-column="59" selection-end-line="49" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_9.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="620" column="9" selection-start-line="620" selection-start-column="9" selection-end-line="620" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/mudir/supplier_report/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="83" column="108" selection-start-line="83" selection-start-column="108" selection-end-line="83" selection-end-column="108" />
+          <folding>
+            <element signature="e#4226#4298#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

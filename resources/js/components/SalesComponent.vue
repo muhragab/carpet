@@ -9,7 +9,7 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>العملاء</label>
-                                    <select class="form-control" v-model="supplier_id">
+                                    <select class="form-control" v-model="supplier_id" @change="checkForPrice()">
                                         <option></option>
                                         <option v-for="supplier in suppliers" :key="supplier.id" :value="supplier.id">{{
                                             supplier.name }}
@@ -20,8 +20,8 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label>المخزن</label>
-                                    <select class="form-control" v-model="inventorie_id">
-                                        <option value=""></option>
+                                    <select class="form-control" v-model="inventorie_id" required>
+                                        <option></option>
                                         <option v-for="store in stores" :key="store.id" :value="store.id">{{store.name
                                             }}
                                         </option>
@@ -32,7 +32,7 @@
                                 <div class="form-group">
                                     <label>مندوب البيع</label>
                                     <select class="form-control" v-model="sale_id">
-                                        <option value=""></option>
+                                        <option></option>
                                         <option v-for="saleMan in salesMen" :key="saleMan.id" :value="saleMan.id">
                                             {{saleMan.name
                                             }}
@@ -50,7 +50,7 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>التاريخ</label>
-                                    <input type="date" class="form-control" v-model="date"/>
+                                    <input type="date" class="form-control" v-model="date" required/>
                                 </div>
                             </div>
                         </div>
@@ -64,7 +64,8 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>المنتاجات</label>
-                                    <select class="form-control" v-model="product_id" :change="getProduct()">
+                                    <select class="form-control" v-model="product_id" :change="getProduct()"
+                                            @change="checkForPrice()">
                                         <option></option>
                                         <option v-for="product in products" :key="product.id" :value="product.id">{{
                                             product.full_name }}
@@ -100,10 +101,10 @@
                                 <tr>
                                     <th>المنتج</th>
                                     <th>العدد</th>
-                                    <th>سعر المتر المربع</th>
                                     <th>المتر المربع</th>
                                     <th>سعر القطعه الواحده</th>
                                     <th>اجمالي الامتار</th>
+                                    <th>سعر م المربع</th>
                                     <th>الجمالي</th>
                                     <th width="9%"></th>
                                 </tr>
@@ -112,10 +113,14 @@
                                 <tr v-for="item in items" :key="item.product">
                                     <td>{{ item.product }}</td>
                                     <td>{{ item.number }}</td>
-                                    <td>{{ item.price }}</td>
-                                    <td>{{ item.sizes_length * item.sizes_width}}</td>
-                                    <td>{{ item.sizes_length * item.sizes_width * item.price}}</td>
-                                    <td>{{ item.sizes_length * item.sizes_width * item.number}}</td>
+                                    <td>{{ Number.parseFloat(item.sizes_length * item.sizes_width).toFixed(2)}}</td>
+                                    <td>{{ Number.parseFloat(item.sizes_length * item.sizes_width *
+                                        item.price).toFixed(2)}}
+                                    </td>
+                                    <td>{{Number.parseFloat(item.sizes_length * item.sizes_width *
+                                        item.number).toFixed(2)}}
+                                    </td>
+                                    <td>{{ Number.parseFloat(item.price).toFixed(2) }}</td>
                                     <td class="kt-font-danger kt-font-lg">{{ item.cost }}</td>
                                     <td>
                                         <a class="btn btn-danger btn-xs" @click="itemRemove(item)">حذف</a>
@@ -139,11 +144,12 @@
                             <div class="col-md-3">
                                 <b>ض . ق . م</b>
                                 <input class="form-control" type="number" v-model="taxes" placeholder="قيمة الضرائب">
-                                <p>{{ outTotal+(outTotal*taxes/100) }} ({{ taxes }}%)</p>
+                                <p>{{Number.parseFloat(outTotal+(outTotal*taxes/100)).toFixed(2)}} ({{ taxes }}%)</p>
                             </div>
                             <div class="col-md-3">
                                 <b>اجمالي السعر بعد الضريبه</b>
-                                <b class="form-control" disabled=""> {{outTotal+(outTotal*taxes/100)}}</b>
+                                <b class="form-control" disabled="">
+                                    {{Number.parseFloat(outTotal+(outTotal*taxes/100)).toFixed(2)}}</b>
                             </div>
                         </div>
 
@@ -151,12 +157,15 @@
                             <div class="col-md-4">
                                 <b>خصم نسبه</b>
                                 <input class="form-control" type="number" v-model="discount" placeholder="خصم بنسبه ">
-                                <p>{{(outTotal+(outTotal*taxes/100)) * (discount/100)}} </p>
+                                <p>{{Number.parseFloat((outTotal+(outTotal*taxes/100)) *
+                                    (discount/100)).toFixed(2)}}</p>
                             </div>
                             <div class="col-md-4">
                                 <b>اجمالي السعر بعد خصم النسبه</b>
-                                <b class="form-control" disabled="">{{(outTotal+(outTotal*taxes/100)) -
-                                    ( (outTotal+(outTotal*taxes/100)) * (discount/100))}}</b>
+                                <b class="form-control" v-model="priceWithDiscount" disabled="">{{
+                                    Number.parseFloat((outTotal+(outTotal*taxes/100))
+                                    -
+                                    ( (outTotal+(outTotal*taxes/100)) * (discount/100))).toFixed(2)}}</b>
                             </div>
                             <div class="col-md-4">
                                 <b>تعديل السعر</b>
@@ -185,10 +194,13 @@
         // @Prop({default: 'Example'})
 
         // axios: any;
+        // supplier_price: any = '';
         supplier_id: any = '';
         inventorie_id: any = '';
         permission_number: any = '';
         finalPrice: any = '';
+        priceWithDiscount: any = [];
+        priceFinal: number = 0;
         product_id: any = '';
         number: any = '';
         date: any = '';
@@ -208,6 +220,13 @@
         taxes: number = 0;
         discount: number = 0;
 
+        checkForPrice(): void {
+            if (this.supplier_id && this.product_id) {
+                axios.get('/api/supplier/price?supplier_id=' + this.supplier_id + '&product_id=' + this.product_id)
+                    .then(response => (this.price = response.data));
+            }
+        }
+
         mounted() {
             axios.get('/api/supplier/all?type=client').then(response => (this.suppliers = response.data));
             axios.get('/api/sales/permission/number').then(response => (this.permission = response.data));
@@ -221,7 +240,7 @@
 
         submitEntry(): void {
             var dataAdd = {
-                product: this.product.name + ' ' + this.product.sizes_length + '×' + this.product.sizes_width,
+                product: this.product.name + ' ' + this.product.sizes_width + '×' + this.product.sizes_length,
                 product_id: this.product.id,
                 number: this.number,
                 sizes_length: this.product.sizes_length,
@@ -254,6 +273,7 @@
                 date: this.date,
                 items: this.items,
                 allPrice: this.outTotal,
+                priceFinal: this.outTotal,
                 allMeters: this.meters,
                 taxes: this.taxes,
                 discount: this.discount
@@ -287,7 +307,7 @@
         calcTotal() {
             let outTotal = 0;
             this.items.forEach(item => {
-                outTotal += item.cost;
+                outTotal += item.cost;/*Number().toFixed(2);*/
             });
             this.outTotal = outTotal;
         }
@@ -295,7 +315,7 @@
         calcMeters() {
             let meters = 0;
             this.items.forEach(item => {
-                meters += (item.sizes_length * item.sizes_width * item.number);
+                meters += item.sizes_length * item.sizes_width * item.number;
             });
             this.meters = meters;
         }

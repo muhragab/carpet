@@ -26,6 +26,11 @@ class PurchaseBackController extends Controller
         //back_purchase_items_purchase_id_foreign` FOREIGN KEY (`purchase_id`)
         // REFERENCES `purchases` (`id`) ON DELETE CASCADE) (SQL: insert into `back_purchase_items` (`purchase_id`, `product_id`, `number`, `price`, `total_price`, `updated_at`, `created_at`) values (2, 1, 10, 100, 1000, 2020-04-12 14:29:15, 2020-04-12 14:29:15))",  dd($request->inventorie_id);
 
+        $request->validate([
+            'supplier_id' => 'required',
+            'inventorie_id' => 'required',
+            'date' => 'required',
+        ]);
         $data = $request->only([
             'supplier_id',
             'inventorie_id',
@@ -36,8 +41,14 @@ class PurchaseBackController extends Controller
             'date'
         ]);
 
+        $priceFinal = ($request->allPrice + ($request->allPrice * $request->taxes / 100)) -
+            (($request->allPrice + ($request->allPrice * $request->taxes / 100)) * ($request->discount / 100));
+
         $data['price'] = null;
-        $final = array_merge($data, ['priceFinal' => $request->allPrice, 'allMeters' => $request->allMeters]);
+        if ($request->finalPrice == null || $request->finalPrice = '')
+            $data['finalPrice'] = $priceFinal;
+
+        $final = array_merge($data, ['priceFinal' => $priceFinal, 'allMeters' => $request->allMeters]);
         $purchase = BackPurchase::create($final);
         $items = $request->items;
 

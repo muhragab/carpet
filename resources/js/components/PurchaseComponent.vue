@@ -9,7 +9,7 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>الموردين</label>
-                                    <select class="form-control" v-model="supplier_id">
+                                    <select class="form-control" v-model="supplier_id" required>
                                         <option></option>
                                         <option v-for="supplier in suppliers" :key="supplier.id" :value="supplier.id">{{
                                             supplier.name }}
@@ -20,8 +20,8 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>المخزن</label>
-                                    <select class="form-control" v-model="inventorie_id">
-                                        <option value=""></option>
+                                    <select class="form-control" v-model="inventorie_id" required>
+                                        <option ></option>
                                         <option v-for="store in stores" :key="store.id" :value="store.id">{{store.name
                                             }}
                                         </option>
@@ -37,7 +37,7 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>التاريخ</label>
-                                    <input type="date" class="form-control" v-model="date" />
+                                    <input type="date" class="form-control" v-model="date" required/>
                                 </div>
                             </div>
                         </div>
@@ -87,10 +87,10 @@
                                 <tr>
                                     <th>المنتج</th>
                                     <th>العدد</th>
-                                    <th>سعر المتر المربع</th>
                                     <th>المتر المربع</th>
                                     <th>سعر القطعه الواحده</th>
                                     <th>اجمالي الامتار</th>
+                                    <th>سعر م المربع</th>
                                     <th>الجمالي</th>
                                     <th width="9%"></th>
                                 </tr>
@@ -99,10 +99,10 @@
                                 <tr v-for="item in items" :key="item.product">
                                     <td>{{ item.product }}</td>
                                     <td>{{ item.number }}</td>
-                                    <td>{{ item.price }}</td>
                                     <td>{{ item.sizes_length * item.sizes_width}}</td>
                                     <td>{{ item.sizes_length * item.sizes_width * item.price}}</td>
                                     <td>{{ item.sizes_length * item.sizes_width * item.number}}</td>
+                                    <td>{{ item.price }}</td>
                                     <td class="kt-font-danger kt-font-lg">{{ item.cost }}</td>
                                     <td>
                                         <a class="btn btn-danger btn-xs" @click="itemRemove(item)">حذف</a>
@@ -142,7 +142,7 @@
                             </div>
                             <div class="col-md-4">
                                 <b>اجمالي السعر بعد خصم النسبه</b>
-                                <b class="form-control" disabled="">{{(outTotal+(outTotal*taxes/100)) -
+                                <b class="form-control" v-model="priceFinal" disabled="">{{(outTotal+(outTotal*taxes/100)) -
                                     ( (outTotal+(outTotal*taxes/100)) * (discount/100))}}</b>
                             </div>
                             <div class="col-md-4">
@@ -176,6 +176,7 @@
         inventorie_id: any = '';
         permission_number: any = '';
         finalPrice: any = '';
+        priceFinal: any = '';
         product_id: any = '';
         number: any = '';
         date: any = '';
@@ -202,23 +203,10 @@
             this.calcTotal();
         }
 
-        // data () {
-        //     return {
-        //         supplier_id: '',
-        //         inventorie_id: '',
-        //         product_id: '',
-        //         number: '',
-        //         price: '',
-        //         suppliers: [],
-        //         products: [],
-        //         product: null,
-        //         items: []
-        //     }
-        // }
 
         submitEntry(): void {
             var dataAdd = {
-                product: this.product.name + ' ' + this.product.sizes_length + '×' + this.product.sizes_width,
+                product: this.product.name + ' ' + this.product.sizes_width + '×' + this.product.sizes_length,
                 product_id: this.product.id,
                 number: this.number,
                 sizes_length: this.product.sizes_length,
@@ -246,6 +234,7 @@
                 inventorie_id: this.inventorie_id,
                 permission_number: this.permission,
                 finalPrice: this.finalPrice,
+                priceFinal: this.priceFinal,
                 date: this.date,
                 items: this.items,
                 allPrice: this.outTotal,

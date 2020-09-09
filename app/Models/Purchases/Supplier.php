@@ -21,6 +21,7 @@ class Supplier extends Model
         'is_supplier',
         'is_client',
         'status',
+        'salesMan',
     ];
 
     public function getIsAttribute()

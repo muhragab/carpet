@@ -12,48 +12,25 @@
 
     <title>{{ config('app.name') }} - Mudir</title>
 
-@if (config('mudir.direction') == 'rtl')
-    <!-- Bootstrap Core CSS -->
-        <link href="{{ asset('/vendor/mudir/css/rtl/bootstrap.min.css') }}" rel="stylesheet">
 
-        <!-- not use this in ltr -->
-        <link href="{{ asset('/vendor/mudir/css/rtl/bootstrap.rtl.css') }}" rel="stylesheet">
-@else
-    <!-- Bootstrap Core CSS -->
-        <link href="{{ asset('/vendor/mudir/css/ltr/bootstrap.min.css') }}" rel="stylesheet">
-@endif
-<!-- MetisMenu CSS -->
-    <link href="{{ asset('/vendor/mudir/css/plugins/metisMenu/metisMenu.min.css') }}" rel="stylesheet">
-
-    <!-- Timeline CSS -->
-    <link href="{{ asset('/vendor/mudir/css/plugins/timeline.css') }}" rel="stylesheet">
-
-@if (config('mudir.direction') == 'rtl')
-    <!-- Custom CSS -->
-        <link href="{{ asset('/vendor/mudir/css/rtl/sb-admin-2.css') }}" rel="stylesheet">
-@else
-    <!-- Custom CSS -->
-        <link href="{{ asset('/vendor/mudir/css/ltr/sb-admin-2.css') }}" rel="stylesheet">
-@endif
-<!-- Morris Charts CSS -->
-    <link href="{{ asset('/vendor/mudir/css/plugins/morris.css') }}" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="{{ asset('/vendor/mudir/css/font-awesome/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
-
-    <link href="{{ asset('/vendor/mudir/css/styles.css') }}" rel="stylesheet" type="text/css">
-
-    @if (!empty(config('mudir.themes')))
-        <link href="{{ asset('/vendor/mudir/css/themes/'.config('mudir.themes').'.css') }}" rel="stylesheet"
-              type="text/css">
-@endif
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.{{ url('/') }}/src_admin/js/1.4.2/respond.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.{{ url('/') }}/src_admin/js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <script>
+        function printDiv() {
+            var divContents = document.getElementById("bill").innerHTML;
+            var a = window.open('', '', 'height=500, width=500');
+            a.document.write('<html>');
+            a.document.write('<body > <h1><br/><br/></h1> <br>');
+            a.document.write(divContents);
+            a.document.write('</body></html>');
+            a.document.close();
+            a.print();
+        }
+    </script>
     <!-- DataTables -->
     <link rel="stylesheet" href="{{url(asset('css/plugins/datatables-bs4/css/dataTables.bootstrap4.css'))}}">
 </head>
@@ -88,7 +65,41 @@
     </nav>
 @yield('content')
 <!-- /#page-wrapper -->
+@if (config('mudir.direction') == 'rtl')
+    <!-- Bootstrap Core CSS -->
+        <link href="{{ asset('/vendor/mudir/css/rtl/bootstrap.min.css') }}" rel="stylesheet">
 
+        <!-- not use this in ltr -->
+        <link href="{{ asset('/vendor/mudir/css/rtl/bootstrap.rtl.css') }}" rel="stylesheet">
+@else
+    <!-- Bootstrap Core CSS -->
+        <link href="{{ asset('/vendor/mudir/css/ltr/bootstrap.min.css') }}" rel="stylesheet">
+@endif
+<!-- MetisMenu CSS -->
+    <link href="{{ asset('/vendor/mudir/css/plugins/metisMenu/metisMenu.min.css') }}" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="{{ asset('/vendor/mudir/css/plugins/timeline.css') }}" rel="stylesheet">
+
+@if (config('mudir.direction') == 'rtl')
+    <!-- Custom CSS -->
+        <link href="{{ asset('/vendor/mudir/css/rtl/sb-admin-2.css') }}" rel="stylesheet">
+@else
+    <!-- Custom CSS -->
+        <link href="{{ asset('/vendor/mudir/css/ltr/sb-admin-2.css') }}" rel="stylesheet">
+@endif
+<!-- Morris Charts CSS -->
+    <link href="{{ asset('/vendor/mudir/css/plugins/morris.css') }}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{{ asset('/vendor/mudir/css/font-awesome/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+
+    <link href="{{ asset('/vendor/mudir/css/styles.css') }}" rel="stylesheet" type="text/css">
+
+    @if (!empty(config('mudir.themes')))
+        <link href="{{ asset('/vendor/mudir/css/themes/'.config('mudir.themes').'.css') }}" rel="stylesheet"
+              type="text/css">
+    @endif
 </div>
 <!-- /#wrapper -->
 
@@ -121,6 +132,12 @@
 <script>
     $(function () {
         $("#example1").DataTable();
+    });
+    $(function () {
+        $("#example2").DataTable();
+    });
+    $(function () {
+        $("#example3").DataTable();
     });
 </script>
 @yield('scripts')

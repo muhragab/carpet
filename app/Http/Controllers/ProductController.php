@@ -92,7 +92,7 @@ class ProductController extends Controller
 
         Product::create($data);
 
-        return redirect()->route('products.index')->with('warning', 'تم تعريف الصنف الجديد');
+        return redirect()->back()->with('warning', 'تم تعريف الصنف الجديد');
     }
 
     /**
@@ -119,8 +119,9 @@ class ProductController extends Controller
         $colors = ProductColors::get();
         $plotters = ProductPlotter::get();
         $countries = ProductCountryOrigin::get();
-
+        $productCount = Product::latest()->value('id');
         return view('mudir.products.products.edit')
+            ->with('productCount', $productCount)
             ->withProduct($product)
             ->withCategories($categories)
             ->withTypes($types)
@@ -168,7 +169,7 @@ class ProductController extends Controller
 
         $product->update($data);
 
-        return redirect()->route('products.index')->with('success', 'تم تحديث الصنف');
+        return redirect()->back()->with('success', 'تم تحديث الصنف');
     }
 
     /**

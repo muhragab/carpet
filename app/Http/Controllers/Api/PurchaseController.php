@@ -25,6 +25,11 @@ class PurchaseController extends Controller
     public function save(Request $request)
     {
 
+        $request->validate([
+            'supplier_id' => 'required',
+            'inventorie_id' => 'required',
+            'date' => 'required',
+        ]);
         $data = $request->only([
             'supplier_id',
             'inventorie_id',
@@ -34,8 +39,14 @@ class PurchaseController extends Controller
             'taxes',
             'date'
         ]);
+        $priceFinal = ($request->allPrice + ($request->allPrice * $request->taxes / 100)) -
+            (($request->allPrice + ($request->allPrice * $request->taxes / 100)) * ($request->discount / 100));
+
         $data['price'] = null;
-        $final = array_merge($data, ['priceFinal' => $request->allPrice, 'allMeters' => $request->allMeters]);
+        if ($request->finalPrice == null || $request->finalPrice = '')
+            $data['finalPrice'] = $priceFinal;
+
+        $final = array_merge($data, ['priceFinal' => $priceFinal, 'allMeters' => $request->allMeters]);
         $purchase = Purchase::create($final);
         $items = $request->items;
 

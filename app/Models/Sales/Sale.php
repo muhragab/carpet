@@ -27,7 +27,8 @@ class Sale extends Model
         'allMeters',
         'priceFinal',
         'taxes',
-        'date'
+        'date',
+        'status',
     ];
 
     public function supplier()

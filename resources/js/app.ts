@@ -20,6 +20,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('purchase-component', require('./components/PurchaseComponent.vue').default);
 Vue.component('back-purchase-component', require('./components/BackPurchaseComponent.vue').default);
 Vue.component('sales-component', require('./components/SalesComponent.vue').default);
+Vue.component('back-sales-component', require('./components/BackSalesComponent.vue').default);
 
 const app = new Vue({
     el: '#app'

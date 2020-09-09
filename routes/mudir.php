@@ -15,9 +15,12 @@ Route::resource('products', 'ProductController');
 
 Route::resource('purchases/supplier', 'SupplierController');
 Route::resource('purchases/purchase', 'PurchaseController');
+Route::get('purchases/purchase/delete/{id}', 'PurchaseController@delete')->name('purchase.delete');
 Route::resource('purchases/back', 'PurchaseBackController');
 
 Route::resource('sales/sales', 'SalesController');
+Route::get('sales/sales/delete/{id}', 'SalesController@delete')->name('sales.delete');
+Route::resource('sales/BackSales', 'SalesBackController');
 
 Route::resource('user', 'UserController');
 
@@ -38,3 +41,14 @@ Route::resource('activitys', 'ActivityController');
 Route::resource('accountCategories', 'AccountCategoryController');
 Route::resource('salesMen', 'SalesManController');
 Route::resource('subAccountCategories', 'SubAccountCategoryController');
+
+Route::resource('supplierPrices', 'SupplierPriceController');
+
+Route::get('supplier/report','SupplierReportsController@supplierReport')->name('supplier.report');
+Route::get('report/supplier/details/{id}','SupplierReportsController@supplierDetails');
+Route::get('report/supplier/creditors/{id}','SupplierReportsController@supplierCreditorDetails');
+Route::get('report/supplier/debtor/{id}','SupplierReportsController@supplierDebtorDetails');
+Route::get('report/supplier/purchases/back/{id}','SupplierReportsController@supplierPurchasesBackDetails');
+Route::get('report/supplier/purchases/{id}','SupplierReportsController@supplierPurchasesDetails');
+Route::get('report/supplier/sales/back/{id}','SupplierReportsController@supplierSalesBackDetails');
+Route::get('report/supplier/sales/{id}','SupplierReportsController@supplierSalesDetails');
