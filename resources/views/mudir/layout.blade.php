@@ -10,8 +10,11 @@
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name') }} - Mudir</title>
+    <title>{{ config('app.name') }}</title>
 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -31,8 +34,18 @@
             a.print();
         }
     </script>
+    <style>
+        .dt-buttons{
+            float: left !important;
+        }
+        .dt-example1_filter{
+            float: right !important;
+        }
+    </style>
     <!-- DataTables -->
     <link rel="stylesheet" href="{{url(asset('css/plugins/datatables-bs4/css/dataTables.bootstrap4.css'))}}">
+    <link rel="stylesheet" href="{{url(asset('css/plugins/datatables-buttons/css/buttons.bootstrap4.css'))}}">
+    {{--<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css">--}}
 </head>
 
 <body>
@@ -109,7 +122,18 @@
 <!-- DataTables -->
 <script src="{{ asset('css/plugins/datatables/jquery.dataTables.js') }}"></script>
 <script src="{{ asset('css/plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
+<script src="{{ asset('css/plugins/datatables-buttons/js/dataTables.buttons.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="{{asset('css/plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>
+<script src="{{asset('css/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
 
+
+{{--
+
+
+--}}
 <!-- Bootstrap Core JavaScript -->
 <script src="{{ asset('/vendor/mudir/js/bootstrap.min.js') }}"></script>
 
@@ -131,13 +155,35 @@
 </script>
 <script>
     $(function () {
-        $("#example1").DataTable();
+        $("#example1").DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'pageLength','excel', 'print'
+            ]
+        });
     });
     $(function () {
-        $("#example2").DataTable();
+        $("#example2").DataTable({
+            dom: 'lBfrtip',
+            buttons: [
+                'pageLength','excel', 'print'
+            ]
+        });
     });
     $(function () {
-        $("#example3").DataTable();
+        $("#example3").DataTable({
+            dom: 'lBfrtip',
+            buttons: [
+                'pageLength','excel', 'print'
+            ]
+        });
+    });
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        $('.js-example-basic-single').select2();
     });
 </script>
 @yield('scripts')

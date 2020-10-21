@@ -17,7 +17,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>مندوب المبيعات</label>
-                                <select class="form-control" name="salesMan">
+                                <select  class="form-control js-example-basic-single"class="form-control" name="salesMan">
                                     <option value=""> من فضلك قم باختيار مندوب المبيعات</option>
                                     @foreach($salesMen as $salesMan)
                                         <option value="{{$salesMan->id}}"> {{$salesMan->name}}</option>

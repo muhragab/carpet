@@ -78,7 +78,7 @@
                                     <td class="text-center">{{($item->product->sizes_length) * ($item->product->sizes_width) * ($item->price) }}</td>
                                     <td class="text-center">{{ ($item->product->sizes_length) * ($item->product->sizes_width) * ($item->number)}}</td>
                                     <td class="text-center">{{ $item->price }}</td>
-                                    <td class="text-center">{{ $item->total_price }}</td>
+                                    <td class="text-center">{{ ($item->product->sizes_length) * ($item->product->sizes_width) * ($item->number) * $item->price }}</td>
                                 </tr>
                             @endforeach
 

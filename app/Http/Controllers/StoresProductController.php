@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\{Store, StoresProduct};
+use App\Traits\StoreProductBankTrait;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class StoresProductController extends Controller
 {
+    use StoreProductBankTrait;
+
     /**
      * Display a listing of the resource.
      *
@@ -52,6 +55,7 @@ class StoresProductController extends Controller
                 'number' => $data['number'],
                 'storeNumber' => $newOrderNumber,
             ]);
+            $this->storeProductBank($data['product_id'], $data['store_id'], $data['number']);
             $store->activityAdd('store:add:value');
         }
         //}

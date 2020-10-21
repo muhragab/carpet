@@ -15,9 +15,6 @@ class SupplierReportsController extends Controller
     public function supplierReport(Request $request)
     {
         $type = $request->is_client;
-
-        // is_supplier == 1 == مورد ;
-        // is_client == 1 == عميل ;
         if ($type == 1)
             $suppliers = Supplier::where('is_client', 1)->get();
         elseif ($type == 2)

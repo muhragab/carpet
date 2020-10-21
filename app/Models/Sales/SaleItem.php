@@ -30,4 +30,10 @@ class SaleItem extends Model
     {
         return $this->hasOne(Product::class, 'id', 'product_id');
     }
+
+
+    public function sale()
+    {
+        return $this->belongsTo(Sale::class, 'sale_id');
+    }
 }

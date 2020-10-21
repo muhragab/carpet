@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Sales\SaleItem;
+use App\Traits\StoreProductBankTrait;
 use Illuminate\Http\Request;
 
 use App\Models\Products\Product;
@@ -9,6 +11,8 @@ use App\Models\Sales\Sale;
 
 class SalesController extends Controller
 {
+    use StoreProductBankTrait;
+
     /**
      * Display a listing of the resource.
      *
@@ -65,6 +69,8 @@ class SalesController extends Controller
      */
     public function edit(Sale $sale)
     {
+        $SaleItem = SaleItem::where('sale_id', $sale->id)->first();
+        $this->storeProductBank($SaleItem['product_id'], $sale['inventorie_id'], -$SaleItem['number']);
         $sale->update(['status' => 2]);
         return redirect()->back();
     }

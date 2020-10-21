@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\{Store, StoresProduct, StoreTransferLog};
+use App\{Store, StoreProductBank, StoresProduct, StoreTransferLog, Traits\StoreProductBankTrait};
 use App\Models\Products\{Product};
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class StoreController extends Controller
 {
+    use StoreProductBankTrait;
+
     /**
      * Display a listing of the resource.
      *
@@ -37,18 +39,33 @@ class StoreController extends Controller
             ->withStores($stores)
             ->withProducts($products)
             ->withLogs($logs)
-            ->with('newOrderNumber',$newOrderNumber);
+            ->with('newOrderNumber', $newOrderNumber);
     }
 
     public function showInStore($id)
     {
         $store = Store::where('id', $id)->first();
         $products = StoresProduct::where('store_id', $id)
-            ->groupBy(['product_id'])
+            ->groupBy(['storeNumber'])
             ->selectRaw('*, sum(number) as numbers')
             ->get();
         //dd($products);
         return view('mudir.stores.show_in_store')
+            ->withStore($store)
+            ->withProducts($products);
+    }
+
+
+    public function showInStoreDetails($id, $store_id)
+    {
+
+        $store = Store::where('id', $store_id)->first();
+        $products = StoresProduct::where('storeNumber', $id)
+            /*->groupBy(['storeNumber'])*/
+            /*->selectRaw('*, sum(number) as numbers')*/
+            ->get();
+        //dd($products);
+        return view('mudir.stores.show_details_in_store_number')
             ->withStore($store)
             ->withProducts($products);
     }
@@ -143,7 +160,7 @@ class StoreController extends Controller
 
         $orderNumber = StoreTransferLog::count() + 1;
         foreach ($filterNullData as $data) {
-            $product_from_store = StoresProduct::where('store_id', '=', $request->store_from)
+            $product_from_store = StoreProductBank::where('store_id', '=', $request->store_from)
                 ->where('id', '=', $data['product_id'])
                 ->first();
             $product_to_store = StoresProduct::where('store_id', '=', $request->store_to)
@@ -164,6 +181,10 @@ class StoreController extends Controller
                 'orderNumber' => $orderNumber,
                 'transfer_date' => $request->transfer_date
             ]);
+
+            $this->storeProductBank($product_from_store->product_id, $request->store_from, -$data['number']);
+            $this->storeProductBank($product_from_store->product_id, $request->store_to, $data['number']);
+
         }
 
 
@@ -172,33 +193,41 @@ class StoreController extends Controller
 
     public function showSendStore($id)
     {
-        $products = Product::get();
-        $stores = Store::get();
         $store = Store::where('id', $id)->first();
         $logs = StoreTransferLog::where('store_from_id', '=', $id)
-            /*->where('acceptance', '=', 'pending')*/
+            ->groupBy(['orderNumber'])
+            ->selectRaw('*, sum(number) as numbers')
             ->get();
 
         return view('mudir.stores.show_from_store')
             ->withStore($store)
-            ->withStores($stores)
-            ->withProducts($products)
             ->withLogs($logs);
     }
+
     public function showToStore($id)
     {
         $store = Store::where('id', $id)->first();
 
-        $products = Product::get();
-        $stores = Store::get();
         $logs = StoreTransferLog::where('store_to_id', '=', $store->id)
-            /*->where('acceptance', '=', 'pending')*/
+            ->groupBy(['orderNumber'])
+            ->selectRaw('*, sum(number) as numbers')
             ->get();
 
         return view('mudir.stores.show_to_store')
             ->withStore($store)
-            ->withStores($stores)
-            ->withProducts($products)
+            ->withLogs($logs);
+    }
+
+
+    public function showSendDetails($id,$store_id)
+    {
+        $store = Store::where('id', $store_id)->first();
+
+        $logs = StoreTransferLog::where('orderNumber', '=', $id)
+            ->get();
+
+        return view('mudir.stores.show_to_details_store')
+            ->withStore($store)
             ->withLogs($logs);
     }
 

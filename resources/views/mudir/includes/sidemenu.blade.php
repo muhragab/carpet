@@ -101,6 +101,16 @@
                 <a href="{{route('supplier.report', ['is_client' => 2]) }}"> تقرير الموردين</a>
             </li>
 
+
+            <li>
+                <a href="{{route('store.report')}}">تقرير المخازن</a>
+            </li>
+
+            <li>
+                <a href="{{route('product.report') }}"> تقرير المنتجات</a>
+            </li>
+
+
         </ul>
         <!-- /.nav-second-level -->
     </li>

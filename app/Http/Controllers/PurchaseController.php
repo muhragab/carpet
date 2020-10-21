@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Purchases\PurchaseItem;
+use App\Traits\StoreProductBankTrait;
 use Illuminate\Http\Request;
 
 use App\Models\Purchases\Purchase;
@@ -9,6 +11,8 @@ use App\Models\Products\Product;
 
 class PurchaseController extends Controller
 {
+    use StoreProductBankTrait;
+
     /**
      * Display a listing of the resource.
      *
@@ -65,7 +69,11 @@ class PurchaseController extends Controller
      */
     public function edit(Purchase $purchase)
     {
+
+        $PurchaseItem = PurchaseItem::where('purchase_id', $purchase->id)->first();
+        $this->storeProductBank($PurchaseItem['product_id'], $purchase['inventorie_id'], $PurchaseItem['number']);
         $purchase->update(['status' => 2]);
+
         return redirect()->back();
     }
 

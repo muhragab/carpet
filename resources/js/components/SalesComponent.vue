@@ -61,7 +61,7 @@
                     <div class="panel-body">
                         <div class="row">
 
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label>المنتاجات</label>
                                     <select class="form-control" v-model="product_id" :change="getProduct()"
@@ -74,17 +74,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <div class="form-group">
                                     <label>العدد</label>
                                     <input class="form-control" placeholder="0000" v-model="number">
                                 </div>
                             </div>
 
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <div class="form-group">
                                     <label>السعر</label>
                                     <input class="form-control" placeholder="0000" v-model="price">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>عدد المنتجات</label>
+                                    <input class="form-control" placeholder="0000" v-model="product_count">
                                 </div>
                             </div>
 
@@ -121,7 +127,9 @@
                                         item.number).toFixed(2)}}
                                     </td>
                                     <td>{{ Number.parseFloat(item.price).toFixed(2) }}</td>
-                                    <td class="kt-font-danger kt-font-lg">{{ item.cost }}</td>
+                                    <td class="kt-font-danger kt-font-lg">{{ Number.parseFloat(item.cost).toFixed(2)
+                                        }}
+                                    </td>
                                     <td>
                                         <a class="btn btn-danger btn-xs" @click="itemRemove(item)">حذف</a>
                                     </td>
@@ -219,11 +227,20 @@
         meters: number = 0;
         taxes: number = 0;
         discount: number = 0;
+        product_count: any = 0;
 
         checkForPrice(): void {
             if (this.supplier_id && this.product_id) {
                 axios.get('/api/supplier/price?supplier_id=' + this.supplier_id + '&product_id=' + this.product_id)
                     .then(response => (this.price = response.data));
+            }
+            this.checkForCountProduct();
+        }
+
+        checkForCountProduct(): void {
+            if (this.inventorie_id && this.product_id) {
+                axios.get('/api/product/count?inventorie_id=' + this.inventorie_id + '&product_id=' + this.product_id)
+                    .then(response => (this.product_count = response.data));
             }
         }
 
@@ -246,6 +263,7 @@
                 sizes_length: this.product.sizes_length,
                 sizes_width: this.product.sizes_width,
                 price: this.price,
+                product_count: this.product_count,
                 cost: ((this.product.sizes_length * this.product.sizes_width) * this.price) * this.number,
             };
 

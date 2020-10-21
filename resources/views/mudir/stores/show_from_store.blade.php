@@ -14,7 +14,7 @@
 
 
             <div class="panel panel-default">
-                <div class="panel-heading">الاصناف التي في هذا المحزن {{ Count($products) }}</div>
+                <div class="panel-heading"></div>
                 <div class="panel-body">
                     <div class="col-lg-12">
                         <h1 class="page-header">
@@ -32,28 +32,23 @@
                                 <th>رقم التسلسل</th>
                                 <th>العدد</th>
                                 <th>الاسم</th>
-                                <th> اسم المنتج</th>
                                 {{--<th>التسلسل</th>--}}
                                 <th>التاريخ</th>
-                                <th>المتر المربع</th>
-                                <th>اجمالي الامتار</th>
-                                <th>السعر</th>
+
                                 <!-- <th width="20%">تعديل</th> -->
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($logs as $log)
                                 <tr>
-                                    <td>#{{ $log->orderNumber }}</td>
+                                    <td>
+                                        <a href="{{url('/show/product/details/sent/'.$log->orderNumber.'/'.$log->store_to_id)}}">
+                                            <p>#{{ $log->orderNumber }}</p>
+                                        </a>
+                                    </td>
                                     <td>{{ $log->number }}</td>
                                     <td>{{ $log->store_to->name }}</td>
-                                    <td>{{ $log->product->name }}</td>
                                     <td>{{ $log->transfer_date }}</td>
-                                    <td>{{ $log->product->sizes_length*$log->product->sizes_width }}</td>
-                                    <td>{{ $log->product->sizes_length*$log->product->sizes_width*$log->number }}</td>
-                                    <td>{{ $log->product->price_meter }}
-                                        ({{ $log->product->price_meter*$log->number }})
-                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>

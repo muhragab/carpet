@@ -30,31 +30,23 @@
                         <table id="example1" class="table table-bordered table-striped dt-responsive nowrap">
                             <thead>
                             <tr>
-                                <th width="50%">الاسم</th>
-                                <th>المتر المربع</th>
-                                <th>السعر</th>
-                                <th>العدد</th>
+                                <th width="50%">رقم الاذن</th>
                                 <th>التاريخ</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($products as $product)
-
                                 <tr>
                                     <td>
-                                        <p>{{ $product->product->full_name }}</p>
+                                        <a href="{{url('store/product/details/'.$product->storeNumber.'/'.$product->store_id)}}">
+                                            <p>{{ $product->storeNumber }}</p>
+                                        </a>
+
                                     </td>
-                                    <td>{{ $product->product->sizes_length*$product->product->sizes_width }}
-                                        ({{ $product->product->sizes_length*$product->product->sizes_width*$product->number }}
-                                        )
-                                    </td>
-                                    <td>{{ $product->product->price_meter }}
-                                        ({{ $product->product->price_meter*$product->number }})
-                                    </td>
-                                    <td>{{ $product->numbers }}</td>
                                     <td>
-                                      {{$product->created_at}}
+                                        {{$product->created_at}}
                                     </td>
+
                                 </tr>
                             @endforeach
                             </tbody>

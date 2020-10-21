@@ -9,6 +9,12 @@
     </div>
     {{ alert($errors) }}
     <!-- /.row -->
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+            type="text/javascript"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css"
+          rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
@@ -21,18 +27,7 @@
                 <!-- /.panel-body -->
             </div>
 
-            <!-- <form action="{{ route('supplier.store') }}" method="post">
-                @CSRF
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label>اسم الورد</label>
-                            <input class="form-control" name="name">
-                        </div>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-success">اضافة</button>
-            </form> -->
+
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -42,36 +37,4 @@
 
 @section('scripts')
 <script src="{{asset('js/app.js')}}" ></script>
-<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script>
-// Vue.http.options.emulateJSON = true;
-
-new Vue({
-    el: '#vueApp',
-    delimiters: ['${', '}'],
-    data: {
-        product: '',
-        number: '',
-        price: '',
-        dataResults: []
-    },
-    methods: {
-      submitEntry: function() {
-
-          var dataAdd = {
-            product: this.product,
-            number: this.number,
-            price: this.price,
-          };
-
-          this.dataResults.push(dataAdd);
-
-          this.product = '';
-          this.number = '';
-          this.price = '';
-
-      }
-    }
-});
-</script> -->
 @endsection

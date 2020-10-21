@@ -21,7 +21,6 @@ class BackPurchase extends Model
         'taxes',
         'date'
     ];
-
     public function supplier()
     {
         return $this->hasOne(Supplier::class, 'id', 'supplier_id');
@@ -30,6 +29,11 @@ class BackPurchase extends Model
     public function stores()
     {
         return $this->hasOne(Store::class, 'id', 'inventorie_id');
+    }
+
+    public function store()
+    {
+        return $this->belongsTo(Store::class, 'inventorie_id');
     }
 
     public function items()

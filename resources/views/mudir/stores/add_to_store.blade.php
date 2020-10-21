@@ -52,7 +52,8 @@
                             <div class="col-md-8">
                                 <div class="form-group">
                                     <label>الصنف</label>
-                                    <select class="form-control" name="rows[0][product_id]">
+                                    <select class="form-control js-example-basic-single"
+                                            name="rows[0][product_id]">
                                         <option value=>اختيار الصنف</option>
                                         @foreach($products as $product)
                                             <option value="{{ $product->id }}">{{ $product->full_name }}</option>
@@ -60,6 +61,7 @@
                                     </select>
                                 </div>
                             </div>
+
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>العدد</label>
@@ -93,7 +95,7 @@
 
                         $('.add-more-btn').click(function () {
                             $('.form-block').append('<input type="hidden" name="rows[' + i + '][store_id]" value="{{ $store->id }}">' + '<div class="col-md-8 more"><div class="form-group">' +
-                                '<select class="form-control" name="rows[' + i + '][product_id]">' +
+                                '<select  class="form-control js-example-basic-single"class="form-control" name="rows[' + i + '][product_id]">' +
                                 '<option value=>اختيار الصنف</option>' +
                                 '@foreach($products as $product)' +
                                 '<option value="{{ $product->id }}">{{ $product->full_name }}</option>' + '@endforeach' +

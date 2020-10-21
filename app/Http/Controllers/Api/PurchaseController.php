@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Store;
+use App\Traits\StoreProductBankTrait;
 use Illuminate\Http\Request;
 
 use App\Models\Purchases\SupplierAccount;
@@ -11,6 +12,7 @@ use App\Models\Purchases\{Purchase, PurchaseItem};
 
 class PurchaseController extends Controller
 {
+    use StoreProductBankTrait;
 
     public function stores()
     {
@@ -58,6 +60,7 @@ class PurchaseController extends Controller
                 'price' => $item['price'],
                 'total_price' => $item['number'] * $item['price']
             ]);
+
         }
 
         $purchase->price = PurchaseItem::where('purchase_id', '=', $purchase->id)->

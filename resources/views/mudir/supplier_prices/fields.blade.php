@@ -14,7 +14,7 @@
 <!-- Product Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('product_id', 'Product Id:') !!}
-    <select class="form-control" name="product_id" required>
+    <select  class="form-control js-example-basic-single"class="form-control" name="product_id" required>
         <option value="">من فضلك اختر المنتج</option>
         @foreach($productTypes as $productType)
             <option value="{{$productType->id}}"

@@ -37177,8 +37177,24 @@ var PurchaseComponent = /** @class */ (function (_super) {
         _this.meters = 0;
         _this.taxes = 0;
         _this.discount = 0;
+        _this.product_count = 0;
         return _this;
     }
+    PurchaseComponent.prototype.checkForPrice = function () {
+        var _this = this;
+        if (this.supplier_id && this.product_id) {
+            axios_1.default.get('/api/supplier/price?supplier_id=' + this.supplier_id + '&product_id=' + this.product_id)
+                .then(function (response) { return (_this.price = response.data); });
+        }
+        this.checkForCountProduct();
+    };
+    PurchaseComponent.prototype.checkForCountProduct = function () {
+        var _this = this;
+        if (this.inventorie_id && this.product_id) {
+            axios_1.default.get('/api/product/count?inventorie_id=' + this.inventorie_id + '&product_id=' + this.product_id)
+                .then(function (response) { return (_this.product_count = response.data); });
+        }
+    };
     PurchaseComponent.prototype.mounted = function () {
         var _this = this;
         console.log('Component mounted.');
@@ -37332,8 +37348,24 @@ var SalesComponent = /** @class */ (function (_super) {
         _this.meters = 0;
         _this.taxes = 0;
         _this.discount = 0;
+        _this.product_count = 0;
         return _this;
     }
+    SalesComponent.prototype.checkForPrice = function () {
+        var _this = this;
+        if (this.supplier_id && this.product_id) {
+            axios_1.default.get('/api/supplier/price?supplier_id=' + this.supplier_id + '&product_id=' + this.product_id)
+                .then(function (response) { return (_this.price = response.data); });
+        }
+        this.checkForCountProduct();
+    };
+    SalesComponent.prototype.checkForCountProduct = function () {
+        var _this = this;
+        if (this.inventorie_id && this.product_id) {
+            axios_1.default.get('/api/product/count?inventorie_id=' + this.inventorie_id + '&product_id=' + this.product_id)
+                .then(function (response) { return (_this.product_count = response.data); });
+        }
+    };
     SalesComponent.prototype.mounted = function () {
         var _this = this;
         axios_1.default.get('/api/supplier/all?type=client').then(function (response) { return (_this.suppliers = response.data); });
@@ -37506,8 +37538,24 @@ var PurchaseComponent = /** @class */ (function (_super) {
         _this.meters = 0;
         _this.taxes = 0;
         _this.discount = 0;
+        _this.product_count = 0;
         return _this;
     }
+    PurchaseComponent.prototype.checkForPrice = function () {
+        var _this = this;
+        if (this.supplier_id && this.product_id) {
+            axios_1.default.get('/api/supplier/price?supplier_id=' + this.supplier_id + '&product_id=' + this.product_id)
+                .then(function (response) { return (_this.price = response.data); });
+        }
+        this.checkForCountProduct();
+    };
+    PurchaseComponent.prototype.checkForCountProduct = function () {
+        var _this = this;
+        if (this.inventorie_id && this.product_id) {
+            axios_1.default.get('/api/product/count?inventorie_id=' + this.inventorie_id + '&product_id=' + this.product_id)
+                .then(function (response) { return (_this.product_count = response.data); });
+        }
+    };
     PurchaseComponent.prototype.mounted = function () {
         var _this = this;
         axios_1.default.get('/api/supplier/all?type=supplier').then(function (response) { return (_this.suppliers = response.data); });
@@ -37662,6 +37710,7 @@ var SalesComponent = /** @class */ (function (_super) {
         _this.meters = 0;
         _this.taxes = 0;
         _this.discount = 0;
+        _this.product_count = 0;
         return _this;
     }
     SalesComponent.prototype.checkForPrice = function () {
@@ -37669,6 +37718,14 @@ var SalesComponent = /** @class */ (function (_super) {
         if (this.supplier_id && this.product_id) {
             axios_1.default.get('/api/supplier/price?supplier_id=' + this.supplier_id + '&product_id=' + this.product_id)
                 .then(function (response) { return (_this.price = response.data); });
+        }
+        this.checkForCountProduct();
+    };
+    SalesComponent.prototype.checkForCountProduct = function () {
+        var _this = this;
+        if (this.inventorie_id && this.product_id) {
+            axios_1.default.get('/api/product/count?inventorie_id=' + this.inventorie_id + '&product_id=' + this.product_id)
+                .then(function (response) { return (_this.product_count = response.data); });
         }
     };
     SalesComponent.prototype.mounted = function () {
@@ -37689,6 +37746,7 @@ var SalesComponent = /** @class */ (function (_super) {
             sizes_length: this.product.sizes_length,
             sizes_width: this.product.sizes_width,
             price: this.price,
+            product_count: this.product_count,
             cost: ((this.product.sizes_length * this.product.sizes_width) * this.price) * this.number,
         };
         this.items.push(dataAdd);
@@ -38231,7 +38289,7 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "panel-body" }, [
             _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-4" }, [
+              _c("div", { staticClass: "col-md-3" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", [_vm._v("المنتجات")]),
                   _vm._v(" "),
@@ -38246,7 +38304,7 @@ var render = function() {
                           expression: "product_id"
                         }
                       ],
-                      staticClass: "form-control",
+                      staticClass: "form-control js-example-basic-single",
                       attrs: { change: _vm.getProduct() },
                       on: {
                         change: function($event) {
@@ -38285,7 +38343,7 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-3" }, [
+              _c("div", { staticClass: "col-md-2" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", [_vm._v("العدد")]),
                   _vm._v(" "),
@@ -38313,7 +38371,7 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-3" }, [
+              _c("div", { staticClass: "col-md-2" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", [_vm._v("السعر")]),
                   _vm._v(" "),
@@ -38335,6 +38393,34 @@ var render = function() {
                           return
                         }
                         _vm.price = $event.target.value
+                      }
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-2" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("عدد المنتجات")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.product_count,
+                        expression: "product_count"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { placeholder: "0000" },
+                    domProps: { value: _vm.product_count },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.product_count = $event.target.value
                       }
                     }
                   })
@@ -38374,13 +38460,11 @@ var render = function() {
                         _c("td", [_vm._v(_vm._s(item.number))]),
                         _vm._v(" "),
                         _c("td", [
-                          _vm._v(_vm._s(item.sizes_length * item.sizes_width))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
                           _vm._v(
                             _vm._s(
-                              item.sizes_length * item.sizes_width * item.price
+                              Number.parseFloat(
+                                item.sizes_length * item.sizes_width
+                              ).toFixed(2)
                             )
                           )
                         ]),
@@ -38388,15 +38472,38 @@ var render = function() {
                         _c("td", [
                           _vm._v(
                             _vm._s(
-                              item.sizes_length * item.sizes_width * item.number
-                            )
+                              Number.parseFloat(
+                                item.sizes_length *
+                                  item.sizes_width *
+                                  item.price
+                              ).toFixed(2)
+                            ) + "\n                                "
                           )
                         ]),
                         _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(item.price))]),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              Number.parseFloat(
+                                item.sizes_length *
+                                  item.sizes_width *
+                                  item.number
+                              ).toFixed(2)
+                            ) + "\n                                "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(Number.parseFloat(item.price).toFixed(2))
+                          )
+                        ]),
                         _vm._v(" "),
                         _c("td", { staticClass: "kt-font-danger kt-font-lg" }, [
-                          _vm._v(_vm._s(item.cost))
+                          _vm._v(
+                            _vm._s(Number.parseFloat(item.cost).toFixed(2)) +
+                              "\n                                "
+                          )
                         ]),
                         _vm._v(" "),
                         _c("td", [
@@ -38927,7 +39034,7 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "panel-body" }, [
             _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-4" }, [
+              _c("div", { staticClass: "col-md-3" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", [_vm._v("المنتاجات")]),
                   _vm._v(" "),
@@ -38942,7 +39049,7 @@ var render = function() {
                           expression: "product_id"
                         }
                       ],
-                      staticClass: "form-control",
+                      staticClass: "form-control js-example-basic-single",
                       attrs: { change: _vm.getProduct() },
                       on: {
                         change: function($event) {
@@ -38981,7 +39088,7 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-3" }, [
+              _c("div", { staticClass: "col-md-2" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", [_vm._v("العدد")]),
                   _vm._v(" "),
@@ -39009,7 +39116,7 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-3" }, [
+              _c("div", { staticClass: "col-md-2" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", [_vm._v("السعر")]),
                   _vm._v(" "),
@@ -39031,6 +39138,34 @@ var render = function() {
                           return
                         }
                         _vm.price = $event.target.value
+                      }
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-2" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("عدد المنتجات")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.product_count,
+                        expression: "product_count"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { placeholder: "0000" },
+                    domProps: { value: _vm.product_count },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.product_count = $event.target.value
                       }
                     }
                   })
@@ -39070,13 +39205,11 @@ var render = function() {
                         _c("td", [_vm._v(_vm._s(item.number))]),
                         _vm._v(" "),
                         _c("td", [
-                          _vm._v(_vm._s(item.sizes_length * item.sizes_width))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
                           _vm._v(
                             _vm._s(
-                              item.sizes_length * item.sizes_width * item.price
+                              Number.parseFloat(
+                                item.sizes_length * item.sizes_width
+                              ).toFixed(2)
                             )
                           )
                         ]),
@@ -39084,15 +39217,38 @@ var render = function() {
                         _c("td", [
                           _vm._v(
                             _vm._s(
-                              item.sizes_length * item.sizes_width * item.number
-                            )
+                              Number.parseFloat(
+                                item.sizes_length *
+                                  item.sizes_width *
+                                  item.price
+                              ).toFixed(2)
+                            ) + "\n                                "
                           )
                         ]),
                         _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(item.price))]),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              Number.parseFloat(
+                                item.sizes_length *
+                                  item.sizes_width *
+                                  item.number
+                              ).toFixed(2)
+                            ) + "\n                                "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(Number.parseFloat(item.price).toFixed(2))
+                          )
+                        ]),
                         _vm._v(" "),
                         _c("td", { staticClass: "kt-font-danger kt-font-lg" }, [
-                          _vm._v(_vm._s(item.cost))
+                          _vm._v(
+                            _vm._s(Number.parseFloat(item.cost).toFixed(2)) +
+                              "\n                                "
+                          )
                         ]),
                         _vm._v(" "),
                         _c("td", [
@@ -39226,7 +39382,11 @@ var render = function() {
                       _vm._v(
                         " " +
                           _vm._s(
-                            _vm.outTotal + (_vm.outTotal * _vm.taxes) / 100
+                            Number.parseFloat(
+                              (_vm.outTotal +
+                                (_vm.outTotal * _vm.taxes) / 100) *
+                                (_vm.discount / 100)
+                            ).toFixed(2)
                           )
                       )
                     ]
@@ -39267,8 +39427,10 @@ var render = function() {
                   _c("p", [
                     _vm._v(
                       _vm._s(
-                        (_vm.outTotal + (_vm.outTotal * _vm.taxes) / 100) *
-                          (_vm.discount / 100)
+                        Number.parseFloat(
+                          (_vm.outTotal + (_vm.outTotal * _vm.taxes) / 100) *
+                            (_vm.discount / 100)
+                        ).toFixed(2)
                       ) + " "
                     )
                   ])
@@ -39282,12 +39444,17 @@ var render = function() {
                     { staticClass: "form-control", attrs: { disabled: "" } },
                     [
                       _vm._v(
-                        _vm._s(
-                          _vm.outTotal +
-                            (_vm.outTotal * _vm.taxes) / 100 -
-                            (_vm.outTotal + (_vm.outTotal * _vm.taxes) / 100) *
-                              (_vm.discount / 100)
-                        )
+                        "\n                                " +
+                          _vm._s(
+                            Number.parseFloat(
+                              _vm.outTotal +
+                                (_vm.outTotal * _vm.taxes) / 100 -
+                                (_vm.outTotal +
+                                  (_vm.outTotal * _vm.taxes) / 100) *
+                                  (_vm.discount / 100)
+                            ).toFixed(2)
+                          ) +
+                          "\n                            "
                       )
                     ]
                   )
@@ -39597,7 +39764,7 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "panel-body" }, [
             _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-4" }, [
+              _c("div", { staticClass: "col-md-3" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", [_vm._v("المنتجات")]),
                   _vm._v(" "),
@@ -39612,7 +39779,7 @@ var render = function() {
                           expression: "product_id"
                         }
                       ],
-                      staticClass: "form-control",
+                      staticClass: "form-control js-example-basic-single",
                       attrs: { change: _vm.getProduct() },
                       on: {
                         change: function($event) {
@@ -39651,7 +39818,7 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-3" }, [
+              _c("div", { staticClass: "col-md-2" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", [_vm._v("العدد")]),
                   _vm._v(" "),
@@ -39679,7 +39846,7 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-3" }, [
+              _c("div", { staticClass: "col-md-2" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", [_vm._v("السعر")]),
                   _vm._v(" "),
@@ -39701,6 +39868,34 @@ var render = function() {
                           return
                         }
                         _vm.price = $event.target.value
+                      }
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-2" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("عدد المنتجات")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.product_count,
+                        expression: "product_count"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { placeholder: "0000" },
+                    domProps: { value: _vm.product_count },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.product_count = $event.target.value
                       }
                     }
                   })
@@ -39740,13 +39935,11 @@ var render = function() {
                         _c("td", [_vm._v(_vm._s(item.number))]),
                         _vm._v(" "),
                         _c("td", [
-                          _vm._v(_vm._s(item.sizes_length * item.sizes_width))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
                           _vm._v(
                             _vm._s(
-                              item.sizes_length * item.sizes_width * item.price
+                              Number.parseFloat(
+                                item.sizes_length * item.sizes_width
+                              ).toFixed(2)
                             )
                           )
                         ]),
@@ -39754,15 +39947,38 @@ var render = function() {
                         _c("td", [
                           _vm._v(
                             _vm._s(
-                              item.sizes_length * item.sizes_width * item.number
-                            )
+                              Number.parseFloat(
+                                item.sizes_length *
+                                  item.sizes_width *
+                                  item.price
+                              ).toFixed(2)
+                            ) + "\n                                "
                           )
                         ]),
                         _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(item.price))]),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              Number.parseFloat(
+                                item.sizes_length *
+                                  item.sizes_width *
+                                  item.number
+                              ).toFixed(2)
+                            ) + "\n                                "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(Number.parseFloat(item.price).toFixed(2))
+                          )
+                        ]),
                         _vm._v(" "),
                         _c("td", { staticClass: "kt-font-danger kt-font-lg" }, [
-                          _vm._v(_vm._s(item.cost))
+                          _vm._v(
+                            _vm._s(Number.parseFloat(item.cost).toFixed(2)) +
+                              "\n                                "
+                          )
                         ]),
                         _vm._v(" "),
                         _c("td", [
@@ -40304,7 +40520,7 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "panel-body" }, [
             _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-4" }, [
+              _c("div", { staticClass: "col-md-3" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", [_vm._v("المنتاجات")]),
                   _vm._v(" "),
@@ -40363,7 +40579,7 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-3" }, [
+              _c("div", { staticClass: "col-md-2" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", [_vm._v("العدد")]),
                   _vm._v(" "),
@@ -40391,7 +40607,7 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-3" }, [
+              _c("div", { staticClass: "col-md-2" }, [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", [_vm._v("السعر")]),
                   _vm._v(" "),
@@ -40413,6 +40629,34 @@ var render = function() {
                           return
                         }
                         _vm.price = $event.target.value
+                      }
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-2" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("عدد المنتجات")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.product_count,
+                        expression: "product_count"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { placeholder: "0000" },
+                    domProps: { value: _vm.product_count },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.product_count = $event.target.value
                       }
                     }
                   })
@@ -40492,7 +40736,10 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("td", { staticClass: "kt-font-danger kt-font-lg" }, [
-                          _vm._v(_vm._s(item.cost))
+                          _vm._v(
+                            _vm._s(Number.parseFloat(item.cost).toFixed(2)) +
+                              "\n                                "
+                          )
                         ]),
                         _vm._v(" "),
                         _c("td", [

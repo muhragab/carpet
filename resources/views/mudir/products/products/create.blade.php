@@ -74,7 +74,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>النوع</label>
-                                <select class="form-control" name="type_id">
+                                <select  class="form-control js-example-basic-single" name="type_id">
                                     <option value=></option>
                                     @foreach($types as $type)
                                         <option value="{{ $type->id }}">{{ $type->name }}</option>

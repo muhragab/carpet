@@ -41,6 +41,12 @@ class Sale extends Model
         return $this->hasOne(Store::class, 'id', 'inventorie_id');
     }
 
+
+    public function store()
+    {
+        return $this->belongsTo(Store::class, 'inventorie_id');
+    }
+
     public function saleMan()
     {
         return $this->belongsTo(SalesMan::class, 'sale_man');

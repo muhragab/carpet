@@ -50,10 +50,11 @@
                     <div class="panel-body">
                         <div class="row">
 
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label>المنتجات</label>
-                                    <select class="form-control" v-model="product_id" :change="getProduct()">
+                                    <select class="form-control js-example-basic-single" v-model="product_id"
+                                            :change="getProduct()">
                                         <option></option>
                                         <option v-for="product in products" :key="product.id" :value="product.id">{{
                                             product.full_name }}
@@ -62,17 +63,23 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <div class="form-group">
                                     <label>العدد</label>
                                     <input class="form-control" placeholder="0000" v-model="number">
                                 </div>
                             </div>
 
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <div class="form-group">
                                     <label>السعر</label>
                                     <input class="form-control" placeholder="0000" v-model="price">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>عدد المنتجات</label>
+                                    <input class="form-control" placeholder="0000" v-model="product_count">
                                 </div>
                             </div>
 
@@ -101,11 +108,17 @@
                                 <tr v-for="item in items" :key="item.product">
                                     <td>{{ item.product }}</td>
                                     <td>{{ item.number }}</td>
-                                    <td>{{ item.sizes_length * item.sizes_width}}</td>
-                                    <td>{{ item.sizes_length * item.sizes_width * item.price}}</td>
-                                    <td>{{ item.sizes_length * item.sizes_width * item.number}}</td>
-                                    <td>{{ item.price }}</td>
-                                    <td class="kt-font-danger kt-font-lg">{{ item.cost }}</td>
+                                    <td>{{ Number.parseFloat(item.sizes_length * item.sizes_width).toFixed(2)}}</td>
+                                    <td>{{ Number.parseFloat(item.sizes_length * item.sizes_width *
+                                        item.price).toFixed(2)}}
+                                    </td>
+                                    <td>{{Number.parseFloat(item.sizes_length * item.sizes_width *
+                                        item.number).toFixed(2)}}
+                                    </td>
+                                    <td>{{ Number.parseFloat(item.price).toFixed(2) }}</td>
+                                    <td class="kt-font-danger kt-font-lg">{{ Number.parseFloat(item.cost).toFixed(2)
+                                        }}
+                                    </td>
                                     <td>
                                         <a class="btn btn-danger btn-xs" @click="itemRemove(item)">حذف</a>
                                     </td>
@@ -194,6 +207,22 @@
         meters: number = 0;
         taxes: number = 0;
         discount: number = 0;
+        product_count: any = 0;
+
+        checkForPrice(): void {
+            if (this.supplier_id && this.product_id) {
+                axios.get('/api/supplier/price?supplier_id=' + this.supplier_id + '&product_id=' + this.product_id)
+                    .then(response => (this.price = response.data));
+            }
+            this.checkForCountProduct();
+        }
+
+        checkForCountProduct(): void {
+            if (this.inventorie_id && this.product_id) {
+                axios.get('/api/product/count?inventorie_id=' + this.inventorie_id + '&product_id=' + this.product_id)
+                    .then(response => (this.product_count = response.data));
+            }
+        }
 
         mounted() {
             console.log('Component mounted.');

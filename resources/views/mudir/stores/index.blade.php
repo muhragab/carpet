@@ -35,9 +35,14 @@
                                             @method('DELETE')
 
                                             <div class="btn-group btn-group-xs">
-                                                <a href="{{ route('stores.show', [$store]) }}" class="btn btn-info">
+                                                <a href="{{url('/show/store/send/'.$store->id)}}" class="btn btn-info">
                                                     <span class="fa fa-fw fa-eye"></span>
-                                                    التحويلات
+                                                    التحويلات الصارده
+                                                </a>
+
+                                                <a href="{{url('/show/to/send/'.$store->id)}}" class="btn btn-info">
+                                                    <span class="fa fa-fw fa-eye"></span>
+                                                    التحويلات الوارده
                                                 </a>
                                                 <a href="{{ url('/show/in/store/'.$store->id) }}" class="btn btn-info">
                                                     <span class="fa fa-fw fa-edit"></span>

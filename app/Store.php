@@ -21,7 +21,7 @@ class Store extends Model
 
     public function products()
     {
-        return $this->hasMany(StoresProduct::class, 'store_id', 'id');
+        return $this->hasMany(StoreProductBank::class, 'store_id', 'id');
     }
 
     public function logs_transfer_from()

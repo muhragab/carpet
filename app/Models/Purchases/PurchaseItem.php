@@ -23,11 +23,16 @@ class PurchaseItem extends Model
 
     public function getTotalAttribute()
     {
-        return $this->number*$this->price;
+        return $this->number * $this->price;
     }
 
     public function product()
     {
         return $this->hasOne(Product::class, 'id', 'product_id');
+    }
+
+    public function purchase()
+    {
+        return $this->belongsTo(Purchase::class, 'purchase_id');
     }
 }

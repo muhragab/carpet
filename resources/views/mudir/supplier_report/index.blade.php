@@ -83,14 +83,15 @@
 
         <div class="row text-center" style="height:50px; background: #1b1e21; padding: 10px ; color: #f3f3f3">
 
-            <div class="col-md-9 text-center" >
+            <div class="col-md-9 text-center">
                 الاجمالي
             </div>
             <div class="col-md-3 text-center">
-                @php
-                    echo array_sum($finalSum);
-                @endphp
-
+                @if(isset($finalSum))
+                    @php
+                        echo array_sum($finalSum);
+                    @endphp
+                @endif
             </div>
         </div>
     </div>

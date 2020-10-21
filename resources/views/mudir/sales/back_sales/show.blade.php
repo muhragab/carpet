@@ -3,7 +3,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-10">
-                <h1 class="page-header">فاتورة المبيعات ({{ $sale->id }})</h1>
+                <h1 class="page-header">فاتورة مردود المبيعات ({{ $sale->id }})</h1>
             </div>
             <br>
             <div class="col-md-2">
@@ -82,7 +82,7 @@
                                     <td class="text-center">{{($item->product->sizes_length) * ($item->product->sizes_width) * ($item->price) }}</td>
                                     <td class="text-center">{{ ($item->product->sizes_length) * ($item->product->sizes_width) * ($item->number)}}</td>
                                     <td class="text-center">{{ $item->price }}</td>
-                                    <td class="text-center">{{ $item->total_price }}</td>
+                                    <td class="text-center">{{ ($item->product->sizes_length) * ($item->product->sizes_width) * ($item->number) * $item->price }}</td>
                                 </tr>
                             @endforeach
 

@@ -42,11 +42,13 @@
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <label>الصنف</label>
-                                        <select class="form-control" name="row[0][product_id]">
+                                        <select class="form-control js-example-basic-single" class="form-control"
+                                                name="row[0][product_id]">
                                             <option value=>اختيار الصنف</option>
-                                            @foreach($store->products as $product)
-                                                <option
-                                                        value="{{ $product->id }}">{{ $product->product->full_name }}</option>
+                                            @foreach($store->products()->where('number','>',0)->get() as $product)
+                                                <option value="{{ $product->id }}">
+                                                    {{ $product->product->full_name }}
+                                                </option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -83,7 +85,7 @@
                             $(".add-more-btn").click(function () {
                                 $(".form-block").append('<div class="col-md-8 more">\n' +
                                     '                                    <div class="form-group ">\n' +
-                                    '                                        <select class="form-control" name="row[' + i + '][product_id]">\n' +
+                                    '                                        <select  class="form-control js-example-basic-single"class="form-control" name="row[' + i + '][product_id]">\n' +
                                     '                                            <option value=>اختيار الصنف</option>\n' +
                                     '                                            @foreach($store->products as $product)\n' +
                                     '                                                <option\n' +

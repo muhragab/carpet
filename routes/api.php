@@ -34,3 +34,4 @@ Route::post('back/purchase/save', 'Api\PurchaseBackController@save');
 Route::post('/sale/save', 'Api\SaleController@save');
 Route::post('back/sale/save', 'Api\BackSaleController@save');
 Route::get('/supplier/price', 'Api\SaleController@getPrice');
+Route::get('/product/count', 'Api\ProductController@getCount');
